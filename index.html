@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="192.png" rel="icon" sizes="192x192" type="image/png">
+  <title>My Running Statistics From Strava</title>
+  <meta name="description" content="My Running statistics from Strava - Covers Total Weeks, Month and Year.">
+  <link rel="canonical" href="https://mskian.github.io/strava-running-stats/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #7B1FA2;
+      --primary-light: #E1BEE7;
+      --primary-dark: #4A148C;
+      --secondary-color: #FF4081;
+      --surface-color: #FFFFFF;
+      --background-color: #F5F5F5;
+      --error-color: #D32F2F;
+      --text-primary: #212121;
+      --text-secondary: #424242;
+      --divider-color: #BDBDBD;
+      --on-primary: #FFFFFF;
+      --on-secondary: #FFFFFF;
+      --on-error: #FFFFFF;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #9C27B0;
+      --primary-light: #4A148C;
+      --primary-dark: #E1BEE7;
+      --secondary-color: #FF80AB;
+      --surface-color: #1E1E1E;
+      --background-color: #121212;
+      --error-color: #CF6679;
+      --text-primary: #F5F5F5;
+      --text-secondary: #BDBDBD;
+      --divider-color: #424242;
+      --on-primary: #FFFFFF;
+      --on-secondary: #000000;
+      --on-error: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    body {
+      font-family: "Mozilla Headline", sans-serif;
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 1rem auto;
+      background-color: var(--surface-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .theme-switch-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 0.5rem;
+    }
+
+    .theme-switch {
+      display: inline-block;
+      height: 34px;
+      position: relative;
+      width: 60px;
+    }
+
+    .theme-switch input {
+      display: none;
+    }
+
+    .slider {
+      background-color: #8a61a5;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      background-color: white;
+      bottom: 4px;
+      content: "";
+      height: 26px;
+      left: 4px;
+      position: absolute;
+      transition: .4s;
+      width: 26px;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .slider-icons {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+      align-items: center;
+      height: 100%;
+    }
+
+    .slider-icons span {
+      font-size: 16px;
+      color: white;
+    }
+
+    .dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1.5rem;
+    }
+
+    .total-distance-card {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--on-primary);
+      padding: 2rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(123, 31, 162, 0.3);
+      min-width: 250px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .total-distance-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .total-distance-text {
+      font-family: "Mozilla Headline", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .total-distance-label {
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .total-distance-value {
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background-color: var(--surface-color);
+      border-radius: 8px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      min-width: 150px;
+      text-align: center;
+      flex: 1;
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .stat-value {
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .time-period-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      font-family: "Mozilla Headline", sans-serif;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: var(--primary-light);
+      border-radius: 8px;
+    }
+
+    .period-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 200px;
+    }
+
+    .period-label {
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .period-select {
+      padding: 0.85rem;
+      border: 1px solid var(--divider-color);
+      border-radius: 4px;
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 1rem;
+      width: 100%;
+      background-color: var(--surface-color);
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .period-select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(123, 31, 162, 0.2);
+    }
+
+    .data-info {
+      text-align: center;
+      margin-top: 1.2rem;
+      color: var(--text-secondary);
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: var(--text-secondary);
+      padding: 1rem;
+      font-family: "Mozilla Headline", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+        margin: 0.5rem;
+      }
+      
+      .dashboard-header {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stats-container {
+        flex-direction: column;
+      }
+      
+      .stat-card {
+        width: 100%;
+      }
+      
+      .total-distance-value {
+        font-size: 2rem;
+      }
+      
+      .time-period-selector {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .period-group {
+        min-width: 100%;
+      }
+      
+      .header-controls {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--divider-color);
+      border-top: 4px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div id="error-message" class="error" style="display: none;"></div>
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div id="dashboard-content" style="display: none;">
+      <div class="dashboard-header">
+        <div class="total-distance-card">
+          <span class="material-icons total-distance-icon">directions_run</span>
+          <div class="total-distance-text">
+            <div class="total-distance-label">TOTAL DISTANCE</div>
+            <div class="total-distance-value" id="total-distance">0 km</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="theme-checkbox">
+            <input type="checkbox" id="theme-checkbox" />
+            <div class="slider">
+              <div class="slider-icons">
+                <span class="material-icons">light_mode</span>
+                <span class="material-icons">dark_mode</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+      
+      <div class="time-period-selector">
+        <div class="period-group" style="margin: 0 auto;">
+          <div class="period-label">Time Period</div>
+          <select class="period-select" id="time-period">
+            <option value="week">Last Week</option>
+            <option value="month">Last Month</option>
+            <option value="year">This Year</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-value" id="total-activities">0</div>
+          <div class="stat-label">Total Activities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="total-time">0h 0m</div>
+          <div class="stat-label">Total Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="total-days">0</div>
+          <div class="stat-label">Days with Activities</div>
+        </div>
+      </div>
+      
+      <div class="data-info" id="data-range">
+        Showing running statistics for the selected time period
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 My Running Stats | Data from Strava
+  </footer>
+  
+  <script>
+    let runningData = null;
+    let darkMode = false;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPreferences();
+      
+      document.getElementById('time-period').addEventListener('change', updateDashboard);
+      document.getElementById('theme-checkbox').addEventListener('change', toggleTheme);
+      
+      init();
+    });
+
+    function loadPreferences() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-checkbox').checked = true;
+        darkMode = true;
+      }
+    }
+
+    function toggleTheme() {
+      darkMode = !darkMode;
+      if (darkMode) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    async function loadData() {
+      try {
+        showLoading(true);
+        const response = await fetch('data.json');
+        if (!response.ok) {
+          throw new Error('Failed to load running data');
+        }
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        showError('Could not load running data. ' + error.message);
+        return null;
+      }
+    }
+
+    function showError(message) {
+      const errorEl = document.getElementById('error-message');
+      errorEl.textContent = message;
+      errorEl.style.display = 'block';
+      setTimeout(() => { 
+        errorEl.textContent = ''; 
+        errorEl.style.display = 'none';
+      }, 5000);
+      showLoading(false);
+    }
+
+    function showLoading(show) {
+      document.getElementById('loading').style.display = show ? 'flex' : 'none';
+      document.getElementById('dashboard-content').style.display = show ? 'none' : 'block';
+    }
+
+    function updateDashboard() {
+      if (!runningData) return;
+      
+      const period = document.getElementById('time-period').value;
+      const periodData = runningData[period];
+      
+      if (!periodData) {
+        showError('No data available for the selected period');
+        return;
+      }
+      
+      document.getElementById('total-distance').textContent = periodData.totalDistanceKm + ' km';
+      document.getElementById('total-activities').textContent = periodData.totalActivities;
+      document.getElementById('total-time').textContent = periodData.totalTime;
+      document.getElementById('total-days').textContent = periodData.totalDays;
+      
+      document.getElementById('data-range').textContent = `Showing running statistics for the ${period}`;
+    }
+
+    async function init() {
+      const data = await loadData();
+      if (!data) return;
+      
+      runningData = data;
+      updateDashboard();
+      showLoading(false);
+    }
+  </script>
+</body>
+</html>
