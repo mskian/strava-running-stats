@@ -8,6 +8,10 @@ My Running statistics from Strava - Covers Last Week, Last Month and Current Yea
 
 using n8n to Get running data from strava and push the stats to github.
 
+## Steps data
+
+- Step Count Analysis from Zepp and Health Connect by Google - <https://github.com/santhoshkumar/steps-data>  
+
 ## LICENSE
 
 MIT 
