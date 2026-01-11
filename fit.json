@@ -10,6 +10,5 @@
   },
   "body_status": "Maintenance",
   "recommendation": "Not enough overload yet. Gradually increase training load.",
-  "source": "intervals.icu",
-  "model": "Banister"
+  "source": "intervals.icu"
 }
