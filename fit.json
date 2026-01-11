@@ -1,1 +1,15 @@
-{}
+{
+  "metrics": {
+    "fitness_ctl": 41,
+    "fatigue_atl": 40,
+    "form_tsb": -1
+  },
+  "training_status": {
+    "color": "grey",
+    "label": "Neutral"
+  },
+  "body_status": "Maintenance",
+  "recommendation": "Not enough overload yet. Gradually increase training load.",
+  "source": "intervals.icu",
+  "model": "Banister"
+}
