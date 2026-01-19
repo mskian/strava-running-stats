@@ -8,7 +8,8 @@
     "color": "grey",
     "label": "Neutral"
   },
-  "body_status": "Maintenance",
-  "recommendation": "Not enough overload yet. Gradually increase training load.",
-  "source": "intervals.icu"
+  "body_status": "Fresh / Maintenance",
+  "recommendation": "You are fresh. Suitable for hard workouts or races.",
+  "source": "intervals.icu",
+  "updated_at": "2026-01-19T10:28:17.969Z"
 }
