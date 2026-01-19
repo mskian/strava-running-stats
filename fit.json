@@ -2,14 +2,14 @@
   "metrics": {
     "fitness_ctl": 44,
     "fatigue_atl": 57,
-    "form_tsb": 13
+    "form_tsb": -13
   },
   "training_status": {
-    "color": "grey",
-    "label": "Neutral"
+    "color": "green",
+    "label": "Optimal"
   },
-  "body_status": "Fresh / Maintenance",
-  "recommendation": "You are fresh. Suitable for hard workouts or races.",
+  "body_status": "Building Fitness",
+  "recommendation": "Perfect training load. Fitness is improving.",
   "source": "intervals.icu",
-  "updated_at": "2026-01-19T10:28:17.969Z"
+  "updated_at": "2026-01-19T10:32:28.524Z"
 }
