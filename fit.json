@@ -1,15 +1,14 @@
 {
   "metrics": {
     "fitness_ctl": 44,
-    "fatigue_atl": 57,
-    "form_tsb": -13
+    "fatigue_atl": 52,
+    "form_tsb": 8
   },
   "training_status": {
-    "color": "green",
-    "label": "Optimal"
+    "color": "grey",
+    "label": "Neutral"
   },
-  "body_status": "Building Fitness",
-  "recommendation": "Perfect training load. Fitness is improving.",
-  "source": "intervals.icu",
-  "updated_at": "2026-01-19T10:32:28.524Z"
+  "body_status": "Maintenance",
+  "recommendation": "Not enough overload yet. Gradually increase training load.",
+  "source": "intervals.icu"
 }
