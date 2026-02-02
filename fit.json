@@ -1,8 +1,8 @@
 {
   "metrics": {
-    "fitness_ctl": 48,
-    "fatigue_atl": 69,
-    "form_tsb": 20
+    "fitness_ctl": 51,
+    "fatigue_atl": 74,
+    "form_tsb": 23
   },
   "training_status": {
     "color": "grey",
