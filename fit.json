@@ -1,14 +1,15 @@
 {
   "metrics": {
-    "fitness_ctl": 50,
-    "fatigue_atl": 66,
-    "form_tsb": 16
+    "fitness_ctl": 47,
+    "fatigue_atl": 44,
+    "form_tsb": 3
   },
   "training_status": {
-    "color": "grey",
-    "label": "Neutral"
+    "color": "blue",
+    "label": "Transition"
   },
-  "body_status": "Maintenance",
-  "recommendation": "Not enough overload yet. Gradually increase training load.",
-  "source": "intervals.icu"
+  "body_status": "Freshening",
+  "recommendation": "Good phase for sharpening or preparing for events.",
+  "source": "intervals.icu",
+  "updated_at": "2026-02-11T05:28:50.170Z"
 }
