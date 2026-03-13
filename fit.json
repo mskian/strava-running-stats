@@ -1,15 +1,15 @@
 {
   "metrics": {
-    "fitness_ctl": 47,
-    "fatigue_atl": 54,
-    "form_tsb": -7
+    "fitness_ctl": 42,
+    "fatigue_atl": 30,
+    "form_tsb": 12
   },
   "training_status": {
-    "color": "green",
-    "label": "Optimal"
+    "color": "grey",
+    "label": "Fresh"
   },
-  "body_status": "Training Well",
-  "recommendation": "Good balance. Maintain current training.",
+  "body_status": "Well Rested",
+  "recommendation": "You are fresh. Ideal for races or key sessions.",
   "source": "intervals.icu",
-  "updated_at": "2026-03-01T09:43:36.160Z"
+  "updated_at": "2026-03-13T10:17:10.825Z"
 }
