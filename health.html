@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="192.png" rel="icon" sizes="192x192" type="image/png">
+
+  <title>
+    Health Dashboard - VO₂ Max, Steps, Heart Rate & Distance Analytics
+  </title>
+
+  <meta
+    name="description"
+    content="Modern health analytics dashboard with beautiful Chart.js visualizations for steps tracking, VO₂ Max, heart rate, and running distance."
+  />
+
+  <meta
+    name="keywords"
+    content="health dashboard, fitness dashboard, vo2 max dashboard, chart js analytics, running stats, heart rate tracker"
+  />
+
+  <meta
+    name="author"
+    content="Santhosh Kumar"
+  />
+
+  <meta
+    name="theme-color"
+    content="#ffffff"
+  />
+
+  <!-- Canonical -->
+  <link
+    rel="canonical"
+    href="https://mskian.github.io/strava-running-stats/health"
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    property="og:title"
+    content="Modern Health Dashboard with VO₂ Max Analytics"
+  />
+
+  <meta
+    property="og:description"
+    content="Track your daily steps, running distance, resting heart rate and VO₂ Max using beautiful modern charts."
+  />
+
+  <meta
+    property="og:url"
+    content="https://mskian.github.io/strava-running-stats/health"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.min.js" integrity="sha512-n/G+dROKbKL3GVngGWmWfwK0yPctjZQM752diVYnXZtD/48agpUKLIn0xDQL9ydZ91x6BiOmTIFwWjjFi2kEFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+
+      --surface: #ffffff;
+
+      --text: #0f172a;
+
+      --muted: #64748b;
+
+      --border:
+        rgba(15, 23, 42, 0.06);
+
+      --shadow:
+        0 10px 30px rgba(15, 23, 42, 0.06);
+
+      --radius: 28px;
+
+      --card-1:
+        linear-gradient(
+          135deg,
+          #4f46e5,
+          #6366f1
+        );
+
+      --card-2:
+        linear-gradient(
+          135deg,
+          #0891b2,
+          #06b6d4
+        );
+
+      --card-3:
+        linear-gradient(
+          135deg,
+          #ef4444,
+          #f97316
+        );
+
+      --card-4:
+        linear-gradient(
+          135deg,
+          #16a34a,
+          #22c55e
+        );
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body,
+    button,
+    input,
+    textarea,
+    select,
+    canvas {
+      font-family:
+        "Geist Mono",
+        monospace;
+    }
+
+    body {
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(99, 102, 241, 0.08),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(6, 182, 212, 0.08),
+          transparent 28%
+        ),
+        var(--bg);
+
+      color: var(--text);
+
+      text-rendering:
+        optimizeLegibility;
+
+      -webkit-font-smoothing:
+        antialiased;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      background:
+        rgba(255, 255, 255, 0.84);
+
+      backdrop-filter:
+        blur(18px);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1450px;
+
+      margin-inline: auto;
+
+      padding: 18px 24px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 18px;
+    }
+
+    .brand-icon {
+      width: 64px;
+
+      height: 64px;
+
+      border-radius: 22px;
+
+      display: grid;
+
+      place-items: center;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4f46e5,
+          #06b6d4
+        );
+
+      box-shadow:
+        0 12px 24px rgba(79, 70, 229, 0.18);
+    }
+
+    .brand-icon .material-icons-round {
+      font-size: 32px;
+    }
+
+    .brand h1 {
+      font-size:
+        clamp(1.2rem, 2vw, 1.65rem);
+
+      font-weight: 800;
+
+      letter-spacing: -0.05em;
+    }
+
+    .brand p {
+      margin-top: 4px;
+
+      color: var(--muted);
+
+      font-size: 0.88rem;
+
+      line-height: 1.6;
+    }
+
+    .status {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      background: #ffffff;
+
+      padding: 10px 16px;
+
+      border-radius: 999px;
+
+      border:
+        1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 10px;
+
+      height: 10px;
+
+      border-radius: 999px;
+
+      background: #22c55e;
+
+      box-shadow:
+        0 0 12px rgba(34, 197, 94, 0.5);
+    }
+
+    main {
+      width: 100%;
+
+      max-width: 1450px;
+
+      margin-inline: auto;
+
+      padding: 34px 24px 100px;
+
+      flex: 1;
+    }
+
+    .hero {
+      margin-bottom: 34px;
+    }
+
+    .hero h2 {
+      max-width: 920px;
+
+      font-size:
+        clamp(2.2rem, 4vw, 4rem);
+
+      font-weight: 800;
+
+      line-height: 1.05;
+
+      letter-spacing: -0.08em;
+    }
+
+    .hero p {
+      margin-top: 18px;
+
+      max-width: 820px;
+
+      color: var(--muted);
+
+      line-height: 1.9;
+
+      font-size: 1rem;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+      gap: 22px;
+
+      margin-bottom: 30px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+
+      transition:
+        transform 180ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-card {
+      position: relative;
+
+      padding: 26px;
+
+      color: #ffffff;
+    }
+
+    .stat-card::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12),
+          transparent
+        );
+
+      pointer-events: none;
+    }
+
+    .steps-card {
+      background: var(--card-1);
+    }
+
+    .distance-card {
+      background: var(--card-2);
+    }
+
+    .heart-card {
+      background: var(--card-3);
+    }
+
+    .vo2-card {
+      background: var(--card-4);
+    }
+
+    .stat-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 20px;
+    }
+
+    .stat-title {
+      font-size: 0.92rem;
+
+      opacity: 0.92;
+
+      font-weight: 600;
+    }
+
+    .stat-icon {
+      width: 56px;
+
+      height: 56px;
+
+      border-radius: 18px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        rgba(255, 255, 255, 0.18);
+
+      backdrop-filter:
+        blur(8px);
+    }
+
+    .stat-icon .material-icons-round {
+      font-size: 28px;
+    }
+
+    .stat-value {
+      font-size:
+        clamp(1.8rem, 3vw, 2.5rem);
+
+      font-weight: 800;
+
+      letter-spacing: -0.07em;
+
+      line-height: 1;
+    }
+
+    .stat-sub {
+      margin-top: 16px;
+
+      font-size: 0.92rem;
+
+      line-height: 1.7;
+
+      opacity: 0.95;
+    }
+
+    .charts-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 24px;
+    }
+
+    .chart-card {
+      background: var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      padding: 24px;
+
+      min-height: 440px;
+    }
+
+    .chart-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      gap: 16px;
+
+      margin-bottom: 20px;
+    }
+
+    .chart-title {
+      font-size: 1.08rem;
+
+      font-weight: 700;
+
+      letter-spacing: -0.04em;
+    }
+
+    .chart-subtitle {
+      margin-top: 6px;
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+
+      line-height: 1.6;
+    }
+
+    .chart-header .material-icons-round {
+      color: var(--muted);
+
+      font-size: 28px;
+    }
+
+    .chart-wrapper {
+      position: relative;
+
+      height: 340px;
+
+      width: 100%;
+
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100% !important;
+
+      height: 100% !important;
+
+      image-rendering: auto;
+    }
+
+    .loading,
+    .error-box {
+      background: var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      padding: 60px 30px;
+
+      text-align: center;
+
+      box-shadow: var(--shadow);
+    }
+
+    .loading .material-icons-round {
+      font-size: 44px;
+
+      color: #4f46e5;
+
+      animation:
+        spin 1s linear infinite;
+    }
+
+    .loading h3 {
+      margin-top: 18px;
+
+      font-size: 1rem;
+    }
+
+    .error-box {
+      border-color:
+        rgba(239, 68, 68, 0.18);
+    }
+
+    .error-box .material-icons-round {
+      font-size: 44px;
+
+      color: #ef4444;
+    }
+
+    .error-box h2 {
+      margin-top: 12px;
+
+      font-size: 1.2rem;
+    }
+
+    .error-box p {
+      margin-top: 12px;
+
+      color: var(--muted);
+
+      line-height: 1.8;
+    }
+
+    footer {
+      background:
+        rgba(255, 255, 255, 0.86);
+
+      backdrop-filter:
+        blur(14px);
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1450px;
+
+      margin-inline: auto;
+
+      padding: 20px 24px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+    }
+
+    .footer-inner a {
+      color: #4f46e5;
+
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .hero h2 {
+        line-height: 1.12;
+      }
+
+      .chart-wrapper {
+        height: 300px;
+      }
+
+      .chart-card {
+        min-height: 410px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <span class="material-icons-round">
+            monitor_heart
+          </span>
+        </div>
+
+        <div>
+          <h1>
+            Health Analytics Dashboard
+          </h1>
+
+          <p>
+            Steps • VO₂ Max • Heart Rate • Distance
+          </p>
+        </div>
+      </div>
+
+      <div class="status">
+        <span class="status-dot"></span>
+
+        <span id="statusText">
+          Connecting...
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>
+        Modern Fitness &
+        Health Tracking Dashboard
+      </h2>
+
+      <p>
+        Real-time analytics dashboard
+        accurate visual comparison
+        for steps, VO₂ Max,
+        heart rate and activity distance.
+      </p>
+    </section>
+
+    <div
+      id="loading"
+      class="loading"
+    >
+      <span class="material-icons-round">
+        autorenew
+      </span>
+
+      <h3>
+        Loading Health Analytics...
+      </h3>
+    </div>
+
+    <div id="errorContainer"></div>
+
+    <section
+      id="dashboard"
+      hidden
+    >
+      <div class="stats-grid">
+        <div
+          class="card stat-card steps-card"
+        >
+          <div class="stat-top">
+            <div class="stat-title">
+              Total Steps
+            </div>
+
+            <div class="stat-icon">
+              <span class="material-icons-round">
+                directions_walk
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="stat-value"
+            id="totalSteps"
+          >
+            --
+          </div>
+
+          <div class="stat-sub">
+            Latest:
+            <strong id="latestSteps">
+              --
+            </strong>
+          </div>
+        </div>
+
+        <div
+          class="card stat-card distance-card"
+        >
+          <div class="stat-top">
+            <div class="stat-title">
+              Total Distance
+            </div>
+
+            <div class="stat-icon">
+              <span class="material-icons-round">
+                route
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="stat-value"
+            id="totalDistance"
+          >
+            --
+          </div>
+
+          <div class="stat-sub">
+            Latest:
+            <strong id="latestDistance">
+              --
+            </strong>
+          </div>
+        </div>
+
+        <div
+          class="card stat-card heart-card"
+        >
+          <div class="stat-top">
+            <div class="stat-title">
+              Resting Heart Rate
+            </div>
+
+            <div class="stat-icon">
+              <span class="material-icons-round">
+                favorite
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="stat-value"
+            id="rhr"
+          >
+            --
+          </div>
+
+          <div class="stat-sub">
+            Average:
+            <strong id="avgRhr">
+              --
+            </strong>
+          </div>
+        </div>
+
+        <div
+          class="card stat-card vo2-card"
+        >
+          <div class="stat-top">
+            <div class="stat-title">
+              VO₂ Max
+            </div>
+
+            <div class="stat-icon">
+              <span class="material-icons-round">
+                air
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="stat-value"
+            id="vo2"
+          >
+            --
+          </div>
+
+          <div class="stat-sub">
+            Average:
+            <strong id="avgVo2">
+              --
+            </strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="card chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">
+                Steps Activity
+              </div>
+
+              <div class="chart-subtitle">
+                Daily walking analytics
+              </div>
+            </div>
+
+            <span class="material-icons-round">
+              bar_chart
+            </span>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="stepsChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">
+                Distance Progress
+              </div>
+
+              <div class="chart-subtitle">
+                Running & movement distance
+              </div>
+            </div>
+
+            <span class="material-icons-round">
+              show_chart
+            </span>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="distanceChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">
+                Resting Heart Rate
+              </div>
+
+              <div class="chart-subtitle">
+                BPM trend analytics
+              </div>
+            </div>
+
+            <span class="material-icons-round">
+              monitor_heart
+            </span>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="rhrChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">
+                VO₂ Max Progress
+              </div>
+
+              <div class="chart-subtitle">
+                cardio fitness comparison
+              </div>
+            </div>
+
+            <span class="material-icons-round">
+              timeline
+            </span>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="vo2Chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        Data Source Credit:
+        <a
+          href="https://github.com/mcnaveen/health-connect-webhook"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          Health Connect to Webhook
+        </a>
+      </div>
+
+      <div id="lastUpdated">
+        Last Updated: --
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const API_URL =
+      "https://mskian.github.io/strava-running-stats/health.json";
+
+    const dashboard =
+      document.getElementById("dashboard");
+
+    const loading =
+      document.getElementById("loading");
+
+    const errorContainer =
+      document.getElementById("errorContainer");
+
+    const statusText =
+      document.getElementById("statusText");
+
+    const safeText = (
+      value,
+      fallback = "N/A"
+    ) => {
+      return value !== undefined &&
+        value !== null &&
+        value !== ""
+        ? String(value)
+        : fallback;
+    };
+
+    const safeArray = (value) =>
+      Array.isArray(value)
+        ? value
+        : [];
+
+    const updateText = (
+      id,
+      value
+    ) => {
+      const element =
+        document.getElementById(id);
+
+      if (!element) return;
+
+      element.textContent =
+        safeText(value);
+    };
+
+    const normalizeChartData = (
+      rawData,
+      labelKey,
+      valueKey
+    ) => {
+      const grouped =
+        new Map();
+
+      rawData.forEach((item) => {
+        const label =
+          item?.[labelKey];
+
+        const value =
+          Number(
+            item?.[valueKey]
+          );
+
+        if (
+          !label ||
+          Number.isNaN(value)
+        ) {
+          return;
+        }
+
+        if (
+          !grouped.has(label)
+        ) {
+          grouped.set(
+            label,
+            []
+          );
+        }
+
+        grouped
+          .get(label)
+          .push(value);
+      });
+
+      const labels = [];
+      const values = [];
+
+      grouped.forEach(
+        (arr, label) => {
+          labels.push(label);
+
+          const average =
+            arr.reduce(
+              (
+                total,
+                current
+              ) =>
+                total +
+                current,
+              0
+            ) / arr.length;
+
+          values.push(
+            Number(
+              average.toFixed(
+                2
+              )
+            )
+          );
+        }
+      );
+
+      return {
+        labels,
+        values,
+      };
+    };
+
+    const getYAxisConfig = (
+      data
+    ) => {
+      const validData =
+        data.filter(
+          (value) =>
+            typeof value ===
+              "number" &&
+            !Number.isNaN(
+              value
+            )
+        );
+
+      const min =
+        Math.min(
+          ...validData
+        );
+
+      const max =
+        Math.max(
+          ...validData
+        );
+
+      const range =
+        max - min;
+
+      const padding =
+        Math.max(
+          range * 0.25,
+          1
+        );
+
+      return {
+        min:
+          Math.floor(
+            min - padding
+          ),
+
+        max:
+          Math.ceil(
+            max + padding
+          ),
+      };
+    };
+
+    const createChart = ({
+      id,
+      labels,
+      data,
+      label,
+      type,
+      borderColor,
+      backgroundColor,
+      fill = true,
+    }) => {
+      const canvas =
+        document.getElementById(id);
+
+      if (!canvas) return;
+
+      const yAxis =
+        getYAxisConfig(data);
+
+      new Chart(canvas, {
+        type,
+
+        data: {
+          labels,
+
+          datasets: [
+            {
+              label,
+
+              data,
+
+              borderColor,
+
+              backgroundColor,
+
+              borderWidth: 3,
+
+              fill,
+
+              tension: 0.35,
+
+              pointRadius: 5,
+
+              pointHoverRadius: 8,
+
+              pointBackgroundColor:
+                "#ffffff",
+
+              pointBorderColor:
+                borderColor,
+
+              pointBorderWidth: 2,
+
+              borderRadius: 14,
+
+              maxBarThickness: 42,
+            },
+          ],
+        },
+
+        options: {
+          responsive: true,
+
+          maintainAspectRatio: false,
+
+          normalized: true,
+
+          animation: {
+            duration: 650,
+          },
+
+          interaction: {
+            mode: "index",
+
+            intersect: false,
+          },
+
+          layout: {
+            padding: {
+              top: 10,
+              right: 8,
+              bottom: 8,
+              left: 8,
+            },
+          },
+
+          plugins: {
+            legend: {
+              labels: {
+                color:
+                  "#0f172a",
+
+                usePointStyle: true,
+
+                padding: 22,
+
+                boxWidth: 10,
+
+                boxHeight: 10,
+
+                font: {
+                  family:
+                    "Geist Mono",
+
+                  size: 12,
+
+                  weight:
+                    "600",
+                },
+              },
+            },
+
+            tooltip: {
+              backgroundColor:
+                "#0f172a",
+
+              titleColor:
+                "#ffffff",
+
+              bodyColor:
+                "#ffffff",
+
+              padding: 14,
+
+              cornerRadius: 14,
+
+              titleFont: {
+                family:
+                  "Geist Mono",
+
+                size: 13,
+
+                weight:
+                  "700",
+              },
+
+              bodyFont: {
+                family:
+                  "Geist Mono",
+
+                size: 12,
+              },
+            },
+          },
+
+          scales: {
+            x: {
+              offset: true,
+
+              grid: {
+                display: false,
+              },
+
+              ticks: {
+                color:
+                  "#475569",
+
+                autoSkip: true,
+
+                autoSkipPadding: 18,
+
+                maxRotation: 0,
+
+                minRotation: 0,
+
+                padding: 12,
+
+                font: {
+                  family:
+                    "Geist Mono",
+
+                  size:
+                    window.innerWidth <
+                    768
+                      ? 10
+                      : 11,
+
+                  weight:
+                    "600",
+                },
+              },
+            },
+
+            y: {
+              min: yAxis.min,
+
+              max: yAxis.max,
+
+              grace: "8%",
+
+              grid: {
+                color:
+                  "rgba(15,23,42,0.05)",
+
+                drawBorder: false,
+              },
+
+              ticks: {
+                color:
+                  "#475569",
+
+                padding: 10,
+
+                precision: 1,
+
+                maxTicksLimit: 6,
+
+                font: {
+                  family:
+                    "Geist Mono",
+
+                  size: 11,
+
+                  weight:
+                    "600",
+                },
+              },
+            },
+          },
+        },
+      });
+    };
+
+    const showError = (
+      message
+    ) => {
+      loading.hidden = true;
+
+      dashboard.hidden = true;
+
+      errorContainer.innerHTML = `
+        <div class="error-box">
+          <span class="material-icons-round">
+            error
+          </span>
+
+          <h2>
+            Failed to Load API
+          </h2>
+
+          <p>
+            ${message}
+          </p>
+        </div>
+      `;
+
+      statusText.textContent =
+        "Connection Failed";
+    };
+
+    const loadDashboard =
+      async () => {
+        try {
+          statusText.textContent =
+            "Fetching Live Data";
+
+          const response =
+            await fetch(
+              API_URL,
+              {
+                headers: {
+                  Accept:
+                    "application/json",
+                },
+
+                cache:
+                  "force-cache",
+              }
+            );
+
+          if (
+            !response.ok
+          ) {
+            throw new Error(
+              `HTTP ${response.status}`
+            );
+          }
+
+          const data =
+            await response.json();
+
+          if (
+            !data ||
+            typeof data !==
+              "object"
+          ) {
+            throw new Error(
+              "Invalid API response"
+            );
+          }
+
+          updateText(
+            "totalSteps",
+            data.total_steps
+          );
+
+          updateText(
+            "latestSteps",
+            data.latest_steps
+          );
+
+          updateText(
+            "totalDistance",
+            data.total_distance
+          );
+
+          updateText(
+            "latestDistance",
+            data.latest_distance
+          );
+
+          updateText(
+            "rhr",
+            data.resting_heart_rate
+          );
+
+          updateText(
+            "avgRhr",
+            data.average_rhr
+          );
+
+          updateText(
+            "vo2",
+            data.vo2_max
+          );
+
+          updateText(
+            "avgVo2",
+            data.average_vo2_max
+          );
+
+          document.getElementById(
+            "lastUpdated"
+          ).textContent =
+            `Last Updated: ${
+              data.timestamp
+                ? new Date(
+                    data.timestamp
+                  ).toLocaleString()
+                : "Unknown"
+            }`;
+
+          // Steps Chart
+          const steps =
+            normalizeChartData(
+              safeArray(
+                data.steps_7d
+              ),
+              "date",
+              "steps"
+            );
+
+          createChart({
+            id:
+              "stepsChart",
+
+            labels:
+              steps.labels,
+
+            data:
+              steps.values,
+
+            label:
+              "Steps",
+
+            type: "bar",
+
+            borderColor:
+              "#4f46e5",
+
+            backgroundColor:
+              "rgba(79,70,229,0.22)",
+          });
+
+          // Distance Chart
+          const distance =
+            normalizeChartData(
+              safeArray(
+                data.distance_7d
+              ),
+              "date",
+              "km"
+            );
+
+          createChart({
+            id:
+              "distanceChart",
+
+            labels:
+              distance.labels,
+
+            data:
+              distance.values,
+
+            label:
+              "Distance KM",
+
+            type:
+              "line",
+
+            borderColor:
+              "#06b6d4",
+
+            backgroundColor:
+              "rgba(6,182,212,0.16)",
+          });
+
+          // Heart Rate Chart
+          const rhr =
+            normalizeChartData(
+              safeArray(
+                data.rhr_7d
+              ),
+              "date",
+              "bpm"
+            );
+
+          createChart({
+            id:
+              "rhrChart",
+
+            labels:
+              rhr.labels,
+
+            data:
+              rhr.values,
+
+            label:
+              "Resting BPM",
+
+            type:
+              "line",
+
+            borderColor:
+              "#ef4444",
+
+            backgroundColor:
+              "rgba(239,68,68,0.14)",
+          });
+
+          // VO2 Chart
+          const vo2 =
+            normalizeChartData(
+              safeArray(
+                data.vo2_7d
+              ),
+              "date",
+              "vo2"
+            );
+
+          createChart({
+            id:
+              "vo2Chart",
+
+            labels:
+              vo2.labels,
+
+            data:
+              vo2.values,
+
+            label:
+              "VO₂ Max",
+
+            type:
+              "line",
+
+            borderColor:
+              "#16a34a",
+
+            backgroundColor:
+              "rgba(22,163,74,0.14)",
+          });
+
+          loading.hidden = true;
+
+          dashboard.hidden = false;
+
+          statusText.textContent =
+            "Live Connected";
+        } catch (error) {
+          console.error(
+            error
+          );
+
+          showError(
+            error.message ||
+              "Unable to fetch health data"
+          );
+        }
+      };
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      loadDashboard,
+      {
+        passive: true,
+        once: true,
+      }
+    );
+  </script>
+</body>
+</html>
