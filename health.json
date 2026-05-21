@@ -1,23 +1,19 @@
 {
-  "timestamp": "2026-05-20T16:22:30.387372Z",
-  "total_steps": "55.9K",
-  "total_distance": "89.45 km",
-  "latest_steps": "10.5K",
-  "latest_distance": "6.86 km",
-  "latest_start": "2026-05-19T18:30:00Z",
-  "latest_end": "2026-05-20T16:22:30.065872Z",
-  "resting_heart_rate": "46 bpm",
-  "vo2_max": "43.7 ml/kg/min",
+  "timestamp": "2026-05-21T03:42:07.727043Z",
+  "total_steps": "57.6K",
+  "total_distance": "89.84 km",
+  "latest_steps": "9.5K",
+  "latest_distance": "7.36 km",
+  "latest_start": "2026-05-20T18:30:00Z",
+  "latest_end": "2026-05-21T03:42:07.283872Z",
+  "resting_heart_rate": "48 bpm",
+  "vo2_max": "43.6 ml/kg/min",
   "average_rhr": "51 bpm",
-  "average_vo2_max": "43.7 ml/kg/min",
+  "average_vo2_max": "43.6 ml/kg/min",
   "steps_7d": [
     {
-      "date": "13 May",
-      "steps": 26
-    },
-    {
       "date": "14 May",
-      "steps": 9808
+      "steps": 1886
     },
     {
       "date": "15 May",
@@ -41,14 +37,14 @@
     },
     {
       "date": "20 May",
-      "steps": 10491
+      "steps": 10617
+    },
+    {
+      "date": "21 May",
+      "steps": 9495
     }
   ],
   "distance_7d": [
-    {
-      "date": "14 May",
-      "km": 6.97
-    },
     {
       "date": "15 May",
       "km": 7.8
@@ -72,17 +68,13 @@
     {
       "date": "20 May",
       "km": 6.86
+    },
+    {
+      "date": "21 May",
+      "km": 7.36
     }
   ],
   "rhr_7d": [
-    {
-      "date": "13 May",
-      "bpm": 50
-    },
-    {
-      "date": "14 May",
-      "bpm": 50
-    },
     {
       "date": "14 May",
       "bpm": 50
@@ -118,13 +110,17 @@
     {
       "date": "19 May",
       "bpm": 46
+    },
+    {
+      "date": "20 May",
+      "bpm": 46
+    },
+    {
+      "date": "20 May",
+      "bpm": 48
     }
   ],
   "vo2_7d": [
-    {
-      "date": "13 May",
-      "vo2": 43.9
-    },
     {
       "date": "14 May",
       "vo2": 43.7
@@ -136,6 +132,10 @@
     {
       "date": "19 May",
       "vo2": 43.7
+    },
+    {
+      "date": "20 May",
+      "vo2": 43.6
     }
   ]
 }
