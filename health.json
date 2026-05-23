@@ -1,23 +1,19 @@
 {
-  "timestamp": "2026-05-22T16:10:46.916178Z",
-  "total_steps": "56.9K",
-  "total_distance": "89.52 km",
-  "latest_steps": "10.4K",
-  "latest_distance": "6.91 km",
-  "latest_start": "2026-05-21T18:30:00Z",
-  "latest_end": "2026-05-22T16:10:46.628167Z",
-  "resting_heart_rate": "48 bpm",
+  "timestamp": "2026-05-23T02:51:51.827987Z",
+  "total_steps": "56.4K",
+  "total_distance": "89.30 km",
+  "latest_steps": "8.1K",
+  "latest_distance": "7 km",
+  "latest_start": "2026-05-22T18:30:00Z",
+  "latest_end": "2026-05-23T02:51:51.257801Z",
+  "resting_heart_rate": "51 bpm",
   "vo2_max": "43.5 ml/kg/min",
-  "average_rhr": "50 bpm",
+  "average_rhr": "49 bpm",
   "average_vo2_max": "43.6 ml/kg/min",
   "steps_7d": [
     {
-      "date": "15 May",
-      "steps": 158
-    },
-    {
       "date": "16 May",
-      "steps": 9554
+      "steps": 1167
     },
     {
       "date": "17 May",
@@ -41,17 +37,17 @@
     },
     {
       "date": "22 May",
-      "steps": 10408
+      "steps": 10435
+    },
+    {
+      "date": "23 May",
+      "steps": 8060
     }
   ],
   "distance_7d": [
     {
-      "date": "15 May",
-      "km": 0.05
-    },
-    {
       "date": "16 May",
-      "km": 7.45
+      "km": 0.23
     },
     {
       "date": "17 May",
@@ -75,18 +71,14 @@
     },
     {
       "date": "22 May",
-      "km": 6.91
+      "km": 6.96
+    },
+    {
+      "date": "23 May",
+      "km": 7
     }
   ],
   "rhr_7d": [
-    {
-      "date": "15 May",
-      "bpm": 53
-    },
-    {
-      "date": "15 May",
-      "bpm": 55
-    },
     {
       "date": "16 May",
       "bpm": 53
@@ -122,13 +114,17 @@
     {
       "date": "21 May",
       "bpm": 48
+    },
+    {
+      "date": "22 May",
+      "bpm": 48
+    },
+    {
+      "date": "22 May",
+      "bpm": 51
     }
   ],
   "vo2_7d": [
-    {
-      "date": "15 May",
-      "vo2": 43.6
-    },
     {
       "date": "19 May",
       "vo2": 43.7
@@ -139,6 +135,10 @@
     },
     {
       "date": "21 May",
+      "vo2": 43.5
+    },
+    {
+      "date": "22 May",
       "vo2": 43.5
     }
   ]
