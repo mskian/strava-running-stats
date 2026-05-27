@@ -1,23 +1,19 @@
 {
-  "timestamp": "2026-05-26T03:55:48.819844Z",
-  "total_steps": "58.6K",
-  "total_distance": "38.88 km",
-  "latest_steps": "9.2K",
-  "latest_distance": "7.20 km",
-  "latest_start": "2026-05-25T18:30:00Z",
-  "latest_end": "2026-05-26T03:55:48.266363Z",
-  "resting_heart_rate": "51 bpm",
+  "timestamp": "2026-05-27T02:27:18.601909Z",
+  "total_steps": "57.5K",
+  "total_distance": "38.52 km",
+  "latest_steps": "7.8K",
+  "latest_distance": "6.14 km",
+  "latest_start": "2026-05-26T18:30:00Z",
+  "latest_end": "2026-05-27T02:27:17.921591Z",
+  "resting_heart_rate": "50 bpm",
   "vo2_max": "43.3 ml/kg/min",
   "average_rhr": "50 bpm",
-  "average_vo2_max": "43.5 ml/kg/min",
+  "average_vo2_max": "43.4 ml/kg/min",
   "steps_7d": [
     {
-      "date": "19 May",
-      "steps": 1927
-    },
-    {
       "date": "20 May",
-      "steps": 10617
+      "steps": 3005
     },
     {
       "date": "21 May",
@@ -41,17 +37,17 @@
     },
     {
       "date": "26 May",
-      "steps": 9227
+      "steps": 9858
+    },
+    {
+      "date": "27 May",
+      "steps": 7767
     }
   ],
   "distance_7d": [
     {
-      "date": "19 May",
-      "km": 0.56
-    },
-    {
       "date": "20 May",
-      "km": 6.86
+      "km": 0.75
     },
     {
       "date": "21 May",
@@ -75,68 +71,68 @@
     },
     {
       "date": "26 May",
-      "km": 7.2
+      "km": 7.38
+    },
+    {
+      "date": "27 May",
+      "km": 6.14
     }
   ],
   "rhr_7d": [
     {
-      "date": "19 May",
+      "date": "20 May",
+      "bpm": 46
+    },
+    {
+      "date": "20 May",
+      "bpm": 48
+    },
+    {
+      "date": "21 May",
+      "bpm": 48
+    },
+    {
+      "date": "21 May",
+      "bpm": 48
+    },
+    {
+      "date": "22 May",
+      "bpm": 48
+    },
+    {
+      "date": "22 May",
+      "bpm": 51
+    },
+    {
+      "date": "24 May",
+      "bpm": 53
+    },
+    {
+      "date": "24 May",
+      "bpm": 53
+    },
+    {
+      "date": "25 May",
+      "bpm": 51
+    },
+    {
+      "date": "25 May",
+      "bpm": 51
+    },
+    {
+      "date": "25 May",
+      "bpm": 51
+    },
+    {
+      "date": "26 May",
+      "bpm": 51
+    },
+    {
+      "date": "26 May",
       "bpm": 50
-    },
-    {
-      "date": "19 May",
-      "bpm": 46
-    },
-    {
-      "date": "20 May",
-      "bpm": 46
-    },
-    {
-      "date": "20 May",
-      "bpm": 48
-    },
-    {
-      "date": "21 May",
-      "bpm": 48
-    },
-    {
-      "date": "21 May",
-      "bpm": 48
-    },
-    {
-      "date": "22 May",
-      "bpm": 48
-    },
-    {
-      "date": "22 May",
-      "bpm": 51
-    },
-    {
-      "date": "24 May",
-      "bpm": 53
-    },
-    {
-      "date": "24 May",
-      "bpm": 53
-    },
-    {
-      "date": "25 May",
-      "bpm": 51
-    },
-    {
-      "date": "25 May",
-      "bpm": 51
-    },
-    {
-      "date": "25 May",
-      "bpm": 51
     }
   ],
   "vo2_7d": [
-    {
-      "date": "19 May",
-      "vo2": 43.7
-    },
     {
       "date": "20 May",
       "vo2": 43.6
@@ -151,6 +147,10 @@
     },
     {
       "date": "25 May",
+      "vo2": 43.3
+    },
+    {
+      "date": "26 May",
       "vo2": 43.3
     }
   ]
