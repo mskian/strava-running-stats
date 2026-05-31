@@ -1,27 +1,19 @@
 {
-  "timestamp": "2026-05-29T16:22:46.481599Z",
-  "total_steps": "55K",
-  "total_distance": "37.13 km",
-  "latest_steps": "10.2K",
-  "latest_distance": "7.11 km",
-  "latest_start": "2026-05-28T18:30:00Z",
-  "latest_end": "2026-05-29T16:22:45.843433Z",
+  "timestamp": "2026-05-31T03:55:40.429955Z",
+  "total_steps": "49.1K",
+  "total_distance": "82.73 km",
+  "latest_steps": "679",
+  "latest_distance": "52.17 km",
+  "latest_start": "2026-05-30T18:30:00Z",
+  "latest_end": "2026-05-31T03:55:39.931830Z",
   "resting_heart_rate": "49 bpm",
   "vo2_max": "44.2 ml/kg/min",
   "average_rhr": "51 bpm",
-  "average_vo2_max": "43.7 ml/kg/min",
+  "average_vo2_max": "43.8 ml/kg/min",
   "steps_7d": [
     {
-      "date": "22 May",
-      "steps": 27
-    },
-    {
-      "date": "23 May",
-      "steps": 8188
-    },
-    {
       "date": "24 May",
-      "steps": 3347
+      "steps": 2920
     },
     {
       "date": "25 May",
@@ -41,17 +33,21 @@
     },
     {
       "date": "29 May",
-      "steps": 10238
+      "steps": 10296
+    },
+    {
+      "date": "30 May",
+      "steps": 2006
+    },
+    {
+      "date": "31 May",
+      "steps": 679
     }
   ],
   "distance_7d": [
     {
-      "date": "23 May",
-      "km": 7
-    },
-    {
       "date": "24 May",
-      "km": 1.7
+      "km": 1.56
     },
     {
       "date": "25 May",
@@ -72,21 +68,17 @@
     {
       "date": "29 May",
       "km": 7.11
+    },
+    {
+      "date": "30 May",
+      "km": 0.56
+    },
+    {
+      "date": "31 May",
+      "km": 52.17
     }
   ],
   "rhr_7d": [
-    {
-      "date": "22 May",
-      "bpm": 48
-    },
-    {
-      "date": "22 May",
-      "bpm": 51
-    },
-    {
-      "date": "24 May",
-      "bpm": 53
-    },
     {
       "date": "24 May",
       "bpm": 53
@@ -122,13 +114,17 @@
     {
       "date": "28 May",
       "bpm": 49
+    },
+    {
+      "date": "30 May",
+      "bpm": 52
+    },
+    {
+      "date": "30 May",
+      "bpm": 49
     }
   ],
   "vo2_7d": [
-    {
-      "date": "22 May",
-      "vo2": 43.5
-    },
     {
       "date": "25 May",
       "vo2": 43.3
