@@ -1,15 +1,15 @@
 {
   "metrics": {
-    "fitness_ctl": 44,
-    "fatigue_atl": 48,
-    "form_tsb": -4
+    "fitness_ctl": 43,
+    "fatigue_atl": 41,
+    "form_tsb": 2
   },
   "training_status": {
-    "color": "green",
-    "label": "Optimal"
+    "color": "blue",
+    "label": "Transition"
   },
-  "body_status": "Training Well",
-  "recommendation": "Good balance. Maintain current training.",
+  "body_status": "Freshening",
+  "recommendation": "Good phase for sharpening or preparing for events.",
   "source": "intervals.icu",
-  "updated_at": "2026-05-31T03:41:48.201Z"
+  "updated_at": "2026-06-02T02:52:29.280Z"
 }
