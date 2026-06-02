@@ -1,27 +1,19 @@
 {
-  "timestamp": "2026-05-31T03:55:40.429955Z",
-  "total_steps": "49.1K",
-  "total_distance": "82.73 km",
-  "latest_steps": "679",
-  "latest_distance": "52.17 km",
-  "latest_start": "2026-05-30T18:30:00Z",
-  "latest_end": "2026-05-31T03:55:39.931830Z",
-  "resting_heart_rate": "49 bpm",
-  "vo2_max": "44.2 ml/kg/min",
+  "timestamp": "2026-06-02T02:51:26.373583Z",
+  "total_steps": "41.3K",
+  "total_distance": "79.47 km",
+  "latest_steps": "6.8K",
+  "latest_distance": "5.83 km",
+  "latest_start": "2026-06-01T18:30:00Z",
+  "latest_end": "2026-06-02T02:51:25.858264Z",
+  "resting_heart_rate": "50 bpm",
+  "vo2_max": "44.0 ml/kg/min",
   "average_rhr": "51 bpm",
-  "average_vo2_max": "43.8 ml/kg/min",
+  "average_vo2_max": "43.9 ml/kg/min",
   "steps_7d": [
     {
-      "date": "24 May",
-      "steps": 2920
-    },
-    {
-      "date": "25 May",
-      "steps": 3749
-    },
-    {
       "date": "26 May",
-      "steps": 10192
+      "steps": 965
     },
     {
       "date": "27 May",
@@ -41,21 +33,21 @@
     },
     {
       "date": "31 May",
-      "steps": 679
+      "steps": 842
+    },
+    {
+      "date": "01 Jun",
+      "steps": 1105
+    },
+    {
+      "date": "02 Jun",
+      "steps": 6834
     }
   ],
   "distance_7d": [
     {
-      "date": "24 May",
-      "km": 1.56
-    },
-    {
-      "date": "25 May",
-      "km": 0.72
-    },
-    {
       "date": "26 May",
-      "km": 7.38
+      "km": 0.17
     },
     {
       "date": "27 May",
@@ -76,25 +68,17 @@
     {
       "date": "31 May",
       "km": 52.17
+    },
+    {
+      "date": "01 Jun",
+      "km": 0.39
+    },
+    {
+      "date": "02 Jun",
+      "km": 5.83
     }
   ],
   "rhr_7d": [
-    {
-      "date": "24 May",
-      "bpm": 53
-    },
-    {
-      "date": "25 May",
-      "bpm": 51
-    },
-    {
-      "date": "25 May",
-      "bpm": 51
-    },
-    {
-      "date": "25 May",
-      "bpm": 51
-    },
     {
       "date": "26 May",
       "bpm": 51
@@ -122,13 +106,21 @@
     {
       "date": "30 May",
       "bpm": 49
+    },
+    {
+      "date": "31 May",
+      "bpm": 59
+    },
+    {
+      "date": "01 Jun",
+      "bpm": 51
+    },
+    {
+      "date": "01 Jun",
+      "bpm": 50
     }
   ],
   "vo2_7d": [
-    {
-      "date": "25 May",
-      "vo2": 43.3
-    },
     {
       "date": "26 May",
       "vo2": 43.3
@@ -140,6 +132,10 @@
     {
       "date": "28 May",
       "vo2": 44.2
+    },
+    {
+      "date": "01 Jun",
+      "vo2": 44
     }
   ]
 }
