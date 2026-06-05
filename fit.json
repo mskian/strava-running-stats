@@ -1,15 +1,15 @@
 {
   "metrics": {
-    "fitness_ctl": 41,
-    "fatigue_atl": 31,
-    "form_tsb": 10
+    "fitness_ctl": 40,
+    "fatigue_atl": 28,
+    "form_tsb": 12
   },
   "training_status": {
-    "color": "blue",
-    "label": "Transition"
+    "color": "grey",
+    "label": "Fresh"
   },
-  "body_status": "Freshening",
-  "recommendation": "Good phase for sharpening or preparing for events.",
+  "body_status": "Well Rested",
+  "recommendation": "You are fresh. Ideal for races or key sessions.",
   "source": "intervals.icu",
-  "updated_at": "2026-06-04T17:04:16.705Z"
+  "updated_at": "2026-06-05T14:24:14.621Z"
 }
