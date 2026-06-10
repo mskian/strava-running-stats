@@ -1,8 +1,8 @@
 {
   "metrics": {
     "fitness_ctl": 37,
-    "fatigue_atl": 22,
-    "form_tsb": 15
+    "fatigue_atl": 21,
+    "form_tsb": 16
   },
   "training_status": {
     "color": "grey",
@@ -11,5 +11,5 @@
   "body_status": "Well Rested",
   "recommendation": "You are fresh. Ideal for races or key sessions.",
   "source": "intervals.icu",
-  "updated_at": "2026-06-09T03:10:51.339Z"
+  "updated_at": "2026-06-10T03:04:54.851Z"
 }
