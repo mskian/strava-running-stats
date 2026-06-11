@@ -2,1056 +2,548 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link href="192.png" rel="icon" sizes="192x192" type="image/png">
-
-  <title>
-    Health Dashboard - VO₂ Max, Steps, Resting Heart Rate & Distance Analytics
-  </title>
-
-  <meta
-    name="description"
-    content="My Personal health analytics dashboard with beautiful Chart.js visualizations for steps tracking, VO₂ Max, Resting heart rate, and running/cycling distance."
-  />
-
-  <meta
-    name="keywords"
-    content="health dashboard, fitness dashboard, vo2 max dashboard, chart js analytics, running stats, heart rate tracker"
-  />
-
-  <meta
-    name="author"
-    content="Santhosh Kumar"
-  />
-
-  <meta
-    name="theme-color"
-    content="#ffffff"
-  />
-
-  <!-- Canonical -->
-  <link
-    rel="canonical"
-    href="https://mskian.github.io/strava-running-stats/health"
-  />
+  
+  <title>Health Dashboard - VO₂ Max, Steps, Resting Heart Rate & Distance Analytics</title>
+  <meta name="description" content="My Personal health analytics dashboard with beautiful Chart.js visualizations for steps tracking, VO₂ Max, Resting heart rate, and running/cycling distance." />
+  <meta name="keywords" content="health dashboard, fitness dashboard, vo2 max dashboard, chart js analytics, running stats, heart rate tracker" />
+  <meta name="author" content="Santhosh Kumar" />
+  <meta name="theme-color" content="#f0f9ff" />
+  <link rel="canonical" href="https://mskian.github.io/strava-running-stats/health" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-    rel="stylesheet"
-  />
-
- <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js" integrity="sha512-Y51n9mtKTVBh3Jbx5pZSJNDDMyY+yGe77DGtBPzRlgsf/YLCh13kSZ3JmfHGzYFCmOndraf0sQgfM654b7dJ3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<style>
-:root {
-  --bg: #eef2ff;
-
-  --surface: rgba(255, 255, 255, 0.82);
-
-  --surface-solid: #ffffff;
-
-  --text: #0f172a;
-
-  --muted: #64748b;
-
-  --border: rgba(15, 23, 42, 0.08);
-
-  --shadow:
-    0 10px 25px rgba(15, 23, 42, 0.06);
-
-  --shadow-lg:
-    0 18px 45px rgba(15, 23, 42, 0.1);
-
-  --radius: 26px;
-
-  --card-1:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #6366f1
-    );
-
-  --card-2:
-    linear-gradient(
-      135deg,
-      #0891b2,
-      #06b6d4
-    );
-
-  --card-3:
-    linear-gradient(
-      135deg,
-      #ef4444,
-      #fb7185
-    );
-
-  --card-4:
-    linear-gradient(
-      135deg,
-      #16a34a,
-      #22c55e
-    );
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body,
-button,
-input,
-textarea,
-select,
-canvas {
-  font-family:
-    "Geist Mono",
-    monospace;
-}
-
-body {
-  min-height: 100vh;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(99, 102, 241, 0.12),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(6, 182, 212, 0.1),
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #f8fbff 0%,
-      #eef2ff 100%
-    );
-
-  color: var(--text);
-
-  text-rendering:
-    optimizeLegibility;
-
-  -webkit-font-smoothing:
-    antialiased;
-
-  overflow-x: hidden;
-}
-
-/* HEADER */
-
-header {
-  position: sticky;
-
-  top: 0;
-
-  background:
-    rgba(255, 255, 255, 0.72);
-
-  backdrop-filter:
-    blur(18px);
-
-  border-bottom:
-    1px solid var(--border);
-}
-
-.header-inner {
-  max-width: 1450px;
-
-  margin-inline: auto;
-
-  padding: 14px 18px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 16px;
-}
-
-.brand {
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-
-  min-width: 0;
-}
-
-.brand-icon {
-  width: 56px;
-
-  height: 56px;
-
-  min-width: 56px;
-
-  border-radius: 18px;
-
-  display: grid;
-
-  place-items: center;
-
-  color: #ffffff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #4f46e5,
-      #06b6d4
-    );
-
-  box-shadow:
-    0 12px 24px rgba(79, 70, 229, 0.22);
-}
-
-.brand-icon .material-icons-round {
-  font-size: 28px;
-}
-
-.brand h1 {
-  font-size:
-    clamp(1rem, 2vw, 1.5rem);
-
-  font-weight: 800;
-
-  line-height: 1.2;
-
-  letter-spacing: -0.04em;
-}
-
-.brand p {
-  margin-top: 4px;
-
-  color: var(--muted);
-
-  font-size: 0.8rem;
-
-  line-height: 1.5;
-}
-
-.status {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  background: var(--surface-solid);
-
-  padding: 10px 14px;
-
-  border-radius: 999px;
-
-  border:
-    1px solid var(--border);
-
-  box-shadow: var(--shadow);
-
-  color: var(--muted);
-
-  font-size: 0.84rem;
-
-  font-weight: 700;
-
-  white-space: nowrap;
-}
-
-.status-dot {
-  width: 10px;
-
-  height: 10px;
-
-  border-radius: 999px;
-
-  background: #22c55e;
-
-  box-shadow:
-    0 0 10px rgba(34, 197, 94, 0.6);
-}
-
-/* MAIN */
-
-main {
-  width: 100%;
-
-  max-width: 1450px;
-
-  margin-inline: auto;
-
-  padding: 24px 18px 80px;
-
-  flex: 1;
-}
-
-/* HERO */
-
-.hero {
-  margin-bottom: 28px;
-}
-
-.hero h2 {
-  max-width: 900px;
-
-  font-size:
-    clamp(1.9rem, 5vw, 3.8rem);
-
-  font-weight: 800;
-
-  line-height: 1.05;
-
-  letter-spacing: -0.08em;
-}
-
-.hero p {
-  margin-top: 16px;
-
-  max-width: 760px;
-
-  color: var(--muted);
-
-  line-height: 1.8;
-
-  font-size: 0.96rem;
-}
-
-/* GRID */
-
-.stats-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(240px, 1fr));
-
-  gap: 18px;
-
-  margin-bottom: 24px;
-}
-
-.charts-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(300px, 1fr));
-
-  gap: 22px;
-}
-
-/* CARD */
-
-.card {
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  box-shadow: var(--shadow);
-
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-
-  box-shadow: var(--shadow-lg);
-}
-
-.stat-card {
-  position: relative;
-
-  padding: 24px;
-
-  color: #ffffff;
-}
-
-.stat-card::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.14),
-      transparent
-    );
-
-  pointer-events: none;
-}
-
-.steps-card {
-  background: var(--card-1);
-}
-
-.distance-card {
-  background: var(--card-2);
-}
-
-.heart-card {
-  background: var(--card-3);
-}
-
-.vo2-card {
-  background: var(--card-4);
-}
-
-.stat-top {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  margin-bottom: 20px;
-}
-
-.stat-title {
-  font-size: 0.9rem;
-
-  font-weight: 700;
-
-  opacity: 0.95;
-}
-
-.stat-icon {
-  width: 52px;
-
-  height: 52px;
-
-  border-radius: 16px;
-
-  display: grid;
-
-  place-items: center;
-
-  background:
-    rgba(255,255,255,0.18);
-
-  backdrop-filter:
-    blur(10px);
-}
-
-.stat-icon .material-icons-round {
-  font-size: 26px;
-}
-
-.stat-value {
-  font-size:
-    clamp(1.7rem, 4vw, 2.5rem);
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -0.06em;
-
-  word-break: break-word;
-}
-
-.stat-sub {
-  margin-top: 14px;
-
-  font-size: 0.9rem;
-
-  line-height: 1.7;
-
-  opacity: 0.95;
-}
-
-/* CHART CARD */
-
-.chart-card {
-  background: var(--surface);
-
-  backdrop-filter:
-    blur(18px);
-
-  border:
-    1px solid rgba(255,255,255,0.4);
-
-  padding: 22px;
-
-  min-height: 410px;
-}
-
-.chart-header {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: flex-start;
-
-  gap: 14px;
-
-  margin-bottom: 18px;
-}
-
-.chart-title {
-  font-size: 1rem;
-
-  font-weight: 800;
-
-  letter-spacing: -0.04em;
-}
-
-.chart-subtitle {
-  margin-top: 6px;
-
-  color: var(--muted);
-
-  font-size: 0.86rem;
-
-  line-height: 1.6;
-}
-
-.chart-header .material-icons-round {
-  font-size: 26px;
-
-  color: #6366f1;
-}
-
-.chart-wrapper {
-  position: relative;
-
-  width: 100%;
-
-  height: 320px;
-
-  overflow: hidden;
-}
-
-canvas {
-  width: 100% !important;
-
-  height: 100% !important;
-}
-
-/* LOADING */
-
-.loading,
-.error-box {
-  background: var(--surface-solid);
-
-  border:
-    1px solid var(--border);
-
-  border-radius: var(--radius);
-
-  padding: 50px 24px;
-
-  text-align: center;
-
-  box-shadow: var(--shadow);
-}
-
-.loading .material-icons-round {
-  font-size: 44px;
-
-  color: #4f46e5;
-
-  animation:
-    spin 1s linear infinite;
-}
-
-.loading h3 {
-  margin-top: 14px;
-
-  font-size: 1rem;
-}
-
-.error-box .material-icons-round {
-  font-size: 44px;
-
-  color: #ef4444;
-}
-
-/* FOOTER */
-
-footer {
-  background:
-    rgba(255,255,255,0.75);
-
-  backdrop-filter:
-    blur(16px);
-
-  border-top:
-    1px solid var(--border);
-}
-
-.footer-inner {
-  max-width: 1450px;
-
-  margin-inline: auto;
-
-  padding: 18px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  color: var(--muted);
-
-  font-size: 0.85rem;
-}
-
-.footer-inner a {
-  color: #4f46e5;
-
-  font-weight: 700;
-
-  text-decoration: none;
-}
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-  .header-inner {
-    flex-direction: row;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding: 12px 14px;
-  }
-
-  .brand {
-    gap: 10px;
-
-    flex: 1;
-
-    min-width: 0;
-  }
-
-  .brand-icon {
-    width: 48px;
-
-    height: 48px;
-
-    min-width: 48px;
-
-    border-radius: 15px;
-  }
-
-  .brand-icon .material-icons-round {
-    font-size: 24px;
-  }
-
-  .brand h1 {
-    font-size: 0.95rem;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-  }
-
-  .brand p {
-    font-size: 0.72rem;
-  }
-
-  .status {
-    padding: 8px 12px;
-
-    font-size: 0.72rem;
-  }
-
-  main {
-    padding: 18px 14px 60px;
-  }
-
-  .hero {
-    margin-bottom: 24px;
-  }
-
-  .hero h2 {
-    line-height: 1.1;
-
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-
-    line-height: 1.7;
-  }
-
-  .stats-grid,
-  .charts-grid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
-
-  .stat-card,
-  .chart-card {
-    padding: 18px;
-  }
-
-  .chart-card {
-    min-height: auto;
-  }
-
-  .chart-wrapper {
-    height: 260px;
-  }
-
-  .stat-value {
-    font-size: 1.9rem;
-  }
-
-  .chart-title {
-    font-size: 0.96rem;
-  }
-
-  .chart-subtitle {
-    font-size: 0.8rem;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .hero h2 {
-    font-size: 1.7rem;
-  }
-
-  .chart-wrapper {
-    height: 240px;
-  }
-
-  .stat-value {
-    font-size: 1.7rem;
-  }
-
-  .status {
-    min-width: unset;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-</style>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js" integrity="sha512-Y51n9mtKTVBh3Jbx5pZSJNDDMyY+yGe77DGtBPzRlgsf/YLCh13kSZ3JmfHGzYFCmOndraf0sQgfM654b7dJ3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-start: #eefbff;
+      --bg-end: #e0f2fe;
+      --surface-white: #ffffff;
+      --text-primary: #0c4a6e;
+      --text-strong: #0369a1;
+      --text-muted: #2c6e9e;
+      --accent-orange: #f97316;
+      --accent-teal: #14b8a6;
+      --accent-rose: #f43f5e;
+      --accent-purple: #8b5cf6;
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+    }
+
+    body {
+      font-family: "Geist Mono", monospace;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .header-inner {
+      background: var(--surface-white);
+      padding: 1rem 1.8rem;
+      border-radius: 60px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(8, 145, 178, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--accent-orange), #ec489a);
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 8px 16px rgba(249, 115, 22, 0.25);
+      flex-shrink: 0;
+    }
+
+    .brand-icon .material-icons-round {
+      font-size: 28px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #0f2b3d, #2b6e9e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.7rem;
+      color: #2c7a9e;
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .status {
+      background: #f0fdf4;
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; transform: scale(0.95);}
+      50% { opacity: 1; transform: scale(1);}
+    }
+
+    .hero {
+      margin: 1.8rem 0 2.5rem 0;
+      background: linear-gradient(105deg, rgba(255,255,240,0.8), rgba(224, 242, 254, 0.6));
+      padding: 2rem 2rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+    }
+
+    .hero h2 {
+      font-size: clamp(1.8rem, 5vw, 3.3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(125deg, #075985, #38bdf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      max-width: 680px;
+      color: #1e5f7a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .stat-card {
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      color: white;
+      transition: transform 0.2s ease, box-shadow 0.25s;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .steps-card { background: linear-gradient(125deg, #f97316, #f43f5e); }
+    .distance-card { background: linear-gradient(125deg, #0d9488, #2dd4bf); }
+    .heart-card { background: linear-gradient(125deg, #db2777, #f472b6); }
+    .vo2-card { background: linear-gradient(125deg, #7c3aed, #c084fc); }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      gap: 1rem;
+    }
+
+    .stat-title {
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.2);
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+    }
+
+    .stat-icon {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stat-icon .material-icons-round {
+      font-size: 26px;
+    }
+
+    .stat-value {
+      font-size: clamp(1.8rem, 5vw, 2.7rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0.6rem 0 0.5rem;
+      word-break: break-word;
+    }
+
+    .stat-sub {
+      font-size: 0.75rem;
+      opacity: 0.95;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .chart-card {
+      background: var(--surface-white);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(14, 165, 233, 0.15);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .chart-header-text {
+      flex: 1;
+    }
+
+    .chart-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #155e75;
+      letter-spacing: -0.3px;
+    }
+
+    .chart-subtitle {
+      font-size: 0.68rem;
+      color: #3b82f6;
+      margin-top: 0.3rem;
+      font-weight: 600;
+      background: #eef2ff;
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+    }
+
+    .chart-header .material-icons-round {
+      font-size: 30px;
+      color: var(--accent-orange);
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      margin-top: 0.5rem;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .loading, .error-box {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #cbd5e1;
+      margin: 2rem 0;
+    }
+
+    .loading .material-icons-round {
+      font-size: 48px;
+      color: var(--accent-orange);
+      animation: spin 1s infinite linear;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    .error-box .material-icons-round {
+      font-size: 54px;
+      color: #f43f5e;
+    }
+
+    button {
+      background: var(--accent-orange);
+      border: none;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      color: white;
+      font-family: "Geist Mono", monospace;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 1.2rem;
+      transition: opacity 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 3rem;
+      background: rgba(255,255,245,0.9);
+      border-radius: 48px;
+      border: 1px solid rgba(20, 184, 166, 0.2);
+    }
+
+    .footer-inner {
+      padding: 1rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.72rem;
+      color: #287e9c;
+      font-weight: 500;
+    }
+
+    .footer-inner a {
+      color: var(--accent-orange);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      body { padding: 1rem; }
+      .header-inner { padding: 0.8rem 1.2rem; }
+      .brand-icon { width: 44px; height: 44px; }
+      .brand-icon .material-icons-round { font-size: 24px; }
+      .brand-text h1 { font-size: 1.2rem; }
+      .status { padding: 0.4rem 1rem; font-size: 0.7rem; white-space: nowrap; }
+      .hero { padding: 1.5rem; }
+      .stat-card { padding: 1.2rem; }
+      .stat-top { flex-wrap: wrap; }
+      .stat-title { font-size: 0.7rem; white-space: normal; }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 32px;
+      }
+      .brand { justify-content: space-between; }
+      .status { justify-content: center; }
+      .stats-grid { gap: 1rem; }
+      .charts-grid { gap: 1.2rem; }
+      .chart-wrapper { height: 260px; }
+      .chart-title { font-size: 0.95rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .hero h2 { font-size: 1.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      .stat-value { font-size: 1.6rem; }
+      .chart-wrapper { height: 230px; }
+      .stat-icon { width: 42px; height: 42px; }
+      .stat-icon .material-icons-round { font-size: 22px; }
+      .brand-text h1 { font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
+<div class="container">
   <header>
     <div class="header-inner">
       <div class="brand">
         <div class="brand-icon">
-          <span class="material-icons-round">
-            monitor_heart
-          </span>
+          <span class="material-icons-round">favorite</span>
         </div>
-
-        <div>
-          <h1>
-            Health Analytics
-          </h1>
+        <div class="brand-text">
+          <h1>Vitalis<span style="font-weight:400;">|</span>Health</h1>
+          <p>Cardio & Movement Intelligence</p>
         </div>
       </div>
-
       <div class="status">
         <span class="status-dot"></span>
-
-        <span id="statusText">
-          Connecting...
-        </span>
+        <span id="statusText">Connecting...</span>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h2>
-        Personal Fitness &
-        Health Tracking Dashboard
-      </h2>
+    <div class="hero">
+      <h2>Vitality in motion<br>Track, evolve, thrive.</h2>
+      <p>Real-time wellness analytics: steps, VO₂ Max, heart rate & distance — beautifully precise.</p>
+    </div>
 
-      <p>
-        Real-time analytics dashboard
-        accurate visual comparison
-        for steps, VO₂ Max,
-        Resting heart rate and activity distance.
-      </p>
-    </section>
-
-    <div
-      id="loading"
-      class="loading"
-    >
-      <span class="material-icons-round">
-        autorenew
-      </span>
-
-      <h3>
-        Loading Health Analytics...
-      </h3>
+    <div id="loading" class="loading">
+      <span class="material-icons-round">autorenew</span>
+      <h3>Loading your health metrics ...</h3>
     </div>
 
     <div id="errorContainer"></div>
 
-    <section
-      id="dashboard"
-      hidden
-    >
+    <section id="dashboard" hidden>
       <div class="stats-grid">
-        <div
-          class="card stat-card steps-card"
-        >
+        <div class="stat-card steps-card">
           <div class="stat-top">
-            <div class="stat-title">
-              Total Steps
-            </div>
-
-            <div class="stat-icon">
-              <span class="material-icons-round">
-                directions_walk
-              </span>
-            </div>
+            <div class="stat-title">Total Steps</div>
+            <div class="stat-icon"><span class="material-icons-round">directions_walk</span></div>
           </div>
-
-          <div
-            class="stat-value"
-            id="totalSteps"
-          >
-            --
-          </div>
-
-          <div class="stat-sub">
-            Latest:
-            <strong id="latestSteps">
-              --
-            </strong>
-          </div>
+          <div class="stat-value" id="totalSteps">--</div>
+          <div class="stat-sub">Latest: <strong id="latestSteps">--</strong> steps</div>
         </div>
-
-        <div
-          class="card stat-card distance-card"
-        >
+        <div class="stat-card distance-card">
           <div class="stat-top">
-            <div class="stat-title">
-              Total Distance
-            </div>
-
-            <div class="stat-icon">
-              <span class="material-icons-round">
-                route
-              </span>
-            </div>
+            <div class="stat-title">Total Distance</div>
+            <div class="stat-icon"><span class="material-icons-round">route</span></div>
           </div>
-
-          <div
-            class="stat-value"
-            id="totalDistance"
-          >
-            --
-          </div>
-
-          <div class="stat-sub">
-            Latest:
-            <strong id="latestDistance">
-              --
-            </strong>
-          </div>
+          <div class="stat-value" id="totalDistance">--</div>
+          <div class="stat-sub">Latest: <strong id="latestDistance">--</strong> km</div>
         </div>
-
-        <div
-          class="card stat-card heart-card"
-        >
+        <div class="stat-card heart-card">
           <div class="stat-top">
-            <div class="stat-title">
-              Resting Heart Rate
-            </div>
-
-            <div class="stat-icon">
-              <span class="material-icons-round">
-                favorite
-              </span>
-            </div>
+            <div class="stat-title">Resting Heart Rate</div>
+            <div class="stat-icon"><span class="material-icons-round">favorite</span></div>
           </div>
-
-          <div
-            class="stat-value"
-            id="rhr"
-          >
-            --
-          </div>
-
-          <div class="stat-sub">
-            Average:
-            <strong id="avgRhr">
-              --
-            </strong>
-          </div>
+          <div class="stat-value" id="rhr">--</div>
+          <div class="stat-sub">Average: <strong id="avgRhr">--</strong> bpm</div>
         </div>
-
-        <div
-          class="card stat-card vo2-card"
-        >
+        <div class="stat-card vo2-card">
           <div class="stat-top">
-            <div class="stat-title">
-              VO₂ Max
-            </div>
-
-            <div class="stat-icon">
-              <span class="material-icons-round">
-                air
-              </span>
-            </div>
+            <div class="stat-title">VO₂ Max</div>
+            <div class="stat-icon"><span class="material-icons-round">air</span></div>
           </div>
-
-          <div
-            class="stat-value"
-            id="vo2"
-          >
-            --
-          </div>
-
-          <div class="stat-sub">
-            Average:
-            <strong id="avgVo2">
-              --
-            </strong>
-          </div>
+          <div class="stat-value" id="vo2">--</div>
+          <div class="stat-sub">Average: <strong id="avgVo2">--</strong> ml/kg/min</div>
         </div>
       </div>
 
       <div class="charts-grid">
-        <div class="card chart-card">
+        <div class="chart-card">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">
-                Steps Activity
-              </div>
-
-              <div class="chart-subtitle">
-                Daily Steps analytics
-              </div>
+            <div class="chart-header-text">
+              <div class="chart-title">Step Intensity</div>
+              <div class="chart-subtitle">Daily step rhythm</div>
             </div>
-
-            <span class="material-icons-round">
-              bar_chart
-            </span>
+            <span class="material-icons-round">bar_chart</span>
           </div>
-
-          <div class="chart-wrapper">
-            <canvas id="stepsChart"></canvas>
-          </div>
+          <div class="chart-wrapper"><canvas id="stepsChart"></canvas></div>
         </div>
-
-        <div class="card chart-card">
+        <div class="chart-card">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">
-                Distance Progress
-              </div>
-
-              <div class="chart-subtitle">
-                Running & Cycling distance
-              </div>
+            <div class="chart-header-text">
+              <div class="chart-title">Distance Flow</div>
+              <div class="chart-subtitle">running / cycling km</div>
             </div>
-
-            <span class="material-icons-round">
-              show_chart
-            </span>
+            <span class="material-icons-round">show_chart</span>
           </div>
-
-          <div class="chart-wrapper">
-            <canvas id="distanceChart"></canvas>
-          </div>
+          <div class="chart-wrapper"><canvas id="distanceChart"></canvas></div>
         </div>
-
-        <div class="card chart-card">
+        <div class="chart-card">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">
-                Resting Heart Rate
-              </div>
-
-              <div class="chart-subtitle">
-                BPM trend analytics
-              </div>
+            <div class="chart-header-text">
+              <div class="chart-title">Heart Rate Calm</div>
+              <div class="chart-subtitle">Resting BPM trends</div>
             </div>
-
-            <span class="material-icons-round">
-              monitor_heart
-            </span>
+            <span class="material-icons-round">monitor_heart</span>
           </div>
-
-          <div class="chart-wrapper">
-            <canvas id="rhrChart"></canvas>
-          </div>
+          <div class="chart-wrapper"><canvas id="rhrChart"></canvas></div>
         </div>
-
-        <div class="card chart-card">
+        <div class="chart-card">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">
-                VO₂ Max Progress
-              </div>
-
-              <div class="chart-subtitle">
-                cardio fitness comparison
-              </div>
+            <div class="chart-header-text">
+              <div class="chart-title">VO₂ Max Evolution</div>
+              <div class="chart-subtitle">Aerobic capacity</div>
             </div>
-
-            <span class="material-icons-round">
-              timeline
-            </span>
+            <span class="material-icons-round">timeline</span>
           </div>
-
-          <div class="chart-wrapper">
-            <canvas id="vo2Chart"></canvas>
-          </div>
+          <div class="chart-wrapper"><canvas id="vo2Chart"></canvas></div>
         </div>
       </div>
     </section>
@@ -1059,685 +551,232 @@ footer {
 
   <footer>
     <div class="footer-inner">
-      <div>
-        Data Source Credit:
-        <a
-          href="https://github.com/mcnaveen/health-connect-webhook"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-        >
-          Health Connect to Webhook
-        </a>
-      </div>
-
-      <div id="lastUpdated">
-        Last Updated: --
-      </div>
+      <div>📊 Data source: <a href="https://github.com/mcnaveen/health-connect-webhook" target="_blank" rel="noopener">Health Connect Bridge</a></div>
+      <div id="lastUpdated">⟳ last sync: --</div>
     </div>
   </footer>
+</div>
 
-  <script>
-    "use strict";
+<script>
+(function() {
+  const API_URL = "https://mskian.github.io/strava-running-stats/health.json";
+  const dashboard = document.getElementById("dashboard");
+  const loadingDiv = document.getElementById("loading");
+  const errorContainer = document.getElementById("errorContainer");
+  const statusSpan = document.getElementById("statusText");
+  let activeCharts = {};
 
-    const API_URL =
-      "https://mskian.github.io/strava-running-stats/health.json";
+  const safeText = (value, fallback = "—") => {
+    return (value !== undefined && value !== null && value !== "") ? String(value) : fallback;
+  };
 
-    const dashboard =
-      document.getElementById("dashboard");
+  const updateElement = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = safeText(value);
+  };
 
-    const loading =
-      document.getElementById("loading");
+  const normalizeChartData = (rawArray, labelKey, valueKey) => {
+    if (!Array.isArray(rawArray) || rawArray.length === 0) return { labels: [], values: [] };
+    const grouped = new Map();
+    for (let item of rawArray) {
+      const label = item?.[labelKey];
+      const val = Number(item?.[valueKey]);
+      if (!label || isNaN(val)) continue;
+      if (!grouped.has(label)) grouped.set(label, []);
+      grouped.get(label).push(val);
+    }
+    if (grouped.size === 0) return { labels: [], values: [] };
+    const labels = [], values = [];
+    for (let [label, arr] of grouped.entries()) {
+      labels.push(label);
+      let sum = 0;
+      for (let v of arr) sum += v;
+      values.push(Number((sum / arr.length).toFixed(2)));
+    }
+    return { labels, values };
+  };
 
-    const errorContainer =
-      document.getElementById("errorContainer");
+  const getOptimizedYRange = (data) => {
+    if (!data.length) return { min: 0, max: 100 };
+    let minV = Math.min(...data);
+    let maxV = Math.max(...data);
+    if (minV === maxV) return { min: minV - 5, max: maxV + 5 };
+    const padding = Math.max((maxV - minV) * 0.2, 1);
+    return { min: Math.floor(minV - padding), max: Math.ceil(maxV + padding) };
+  };
 
-    const statusText =
-      document.getElementById("statusText");
+  const renderChart = ({ id, labels, data, label, type, borderColor }) => {
+    const canvas = document.getElementById(id);
+    if (!canvas || !labels.length) return;
+    if (activeCharts[id]) {
+      try { activeCharts[id].destroy(); } catch(e) {}
+      delete activeCharts[id];
+    }
+    const ctx = canvas.getContext('2d');
+    const yRange = getOptimizedYRange(data);
+    let backgroundColor;
+    if (type === 'bar') {
+      backgroundColor = borderColor + '30';
+    } else {
+      const grad = ctx.createLinearGradient(0, 0, 0, 280);
+      grad.addColorStop(0, borderColor + '70');
+      grad.addColorStop(1, borderColor + '08');
+      backgroundColor = grad;
+    }
 
-    const safeText = (
-      value,
-      fallback = "N/A"
-    ) => {
-      return value !== undefined &&
-        value !== null &&
-        value !== ""
-        ? String(value)
-        : fallback;
-    };
-
-    const safeArray = (value) =>
-      Array.isArray(value)
-        ? value
-        : [];
-
-    const updateText = (
-      id,
-      value
-    ) => {
-      const element =
-        document.getElementById(id);
-
-      if (!element) return;
-
-      element.textContent =
-        safeText(value);
-    };
-
-    const normalizeChartData = (
-      rawData,
-      labelKey,
-      valueKey
-    ) => {
-      const grouped =
-        new Map();
-
-      rawData.forEach((item) => {
-        const label =
-          item?.[labelKey];
-
-        const value =
-          Number(
-            item?.[valueKey]
-          );
-
-        if (
-          !label ||
-          Number.isNaN(value)
-        ) {
-          return;
-        }
-
-        if (
-          !grouped.has(label)
-        ) {
-          grouped.set(
-            label,
-            []
-          );
-        }
-
-        grouped
-          .get(label)
-          .push(value);
-      });
-
-      const labels = [];
-      const values = [];
-
-      grouped.forEach(
-        (arr, label) => {
-          labels.push(label);
-
-          const average =
-            arr.reduce(
-              (
-                total,
-                current
-              ) =>
-                total +
-                current,
-              0
-            ) / arr.length;
-
-          values.push(
-            Number(
-              average.toFixed(
-                2
-              )
-            )
-          );
-        }
-      );
-
-      return {
-        labels,
-        values,
-      };
-    };
-
-    const getYAxisConfig = (
-      data
-    ) => {
-      const validData =
-        data.filter(
-          (value) =>
-            typeof value ===
-              "number" &&
-            !Number.isNaN(
-              value
-            )
-        );
-
-      const min =
-        Math.min(
-          ...validData
-        );
-
-      const max =
-        Math.max(
-          ...validData
-        );
-
-      const range =
-        max - min;
-
-      const padding =
-        Math.max(
-          range * 0.25,
-          1
-        );
-
-      return {
-        min:
-          Math.floor(
-            min - padding
-          ),
-
-        max:
-          Math.ceil(
-            max + padding
-          ),
-      };
-    };
-
-    const createChart = ({
-      id,
-      labels,
-      data,
-      label,
-      type,
-      borderColor,
-      backgroundColor,
-      fill = true,
-    }) => {
-      const canvas =
-        document.getElementById(id);
-
-      if (!canvas) return;
-
-      const yAxis =
-        getYAxisConfig(data);
-
-      new Chart(canvas, {
-        type,
-
-        data: {
-          labels,
-
-          datasets: [
-            {
-              label,
-
-              data,
-
-              borderColor,
-
-              backgroundColor,
-
-              borderWidth: 3,
-
-              fill,
-
-              tension: 0.35,
-
-              pointRadius: 5,
-
-              pointHoverRadius: 8,
-
-              pointBackgroundColor:
-                "#ffffff",
-
-              pointBorderColor:
-                borderColor,
-
-              pointBorderWidth: 2,
-
-              borderRadius: 14,
-
-              maxBarThickness: 42,
-            },
-          ],
-        },
-
-        options: {
-          responsive: true,
-
-          maintainAspectRatio: false,
-
-          normalized: true,
-
-          animation: {
-            duration: 650,
+    const chart = new Chart(ctx, {
+      type: type,
+      data: {
+        labels: labels,
+        datasets: [{
+          label: label,
+          data: data,
+          borderColor: borderColor,
+          backgroundColor: backgroundColor,
+          borderWidth: type === 'bar' ? 0 : 2.5,
+          borderRadius: type === 'bar' ? 10 : 6,
+          barPercentage: 0.7,
+          categoryPercentage: 0.85,
+          fill: type !== 'bar',
+          tension: 0.3,
+          pointRadius: type === 'bar' ? undefined : 4,
+          pointHoverRadius: 7,
+          pointBackgroundColor: '#ffffff',
+          pointBorderColor: borderColor,
+          pointBorderWidth: 2,
+          pointStyle: 'circle'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 500, easing: 'easeOutCubic' },
+        plugins: {
+          legend: {
+            labels: {
+              font: { family: "'Geist Mono', monospace", size: 11, weight: '600' },
+              usePointStyle: true,
+              boxWidth: 10,
+              color: '#0c4a6e'
+            }
           },
-
-          interaction: {
-            mode: "index",
-
-            intersect: false,
-          },
-
-          layout: {
-            padding: {
-              top: 10,
-              right: 8,
-              bottom: 8,
-              left: 8,
-            },
-          },
-
-          plugins: {
-            legend: {
-              labels: {
-                color:
-                  "#0f172a",
-
-                usePointStyle: true,
-
-                padding: 22,
-
-                boxWidth: 10,
-
-                boxHeight: 10,
-
-                font: {
-                  family:
-                    "Geist Mono",
-
-                  size: 12,
-
-                  weight:
-                    "600",
-                },
-              },
-            },
-
-            tooltip: {
-              backgroundColor:
-                "#0f172a",
-
-              titleColor:
-                "#ffffff",
-
-              bodyColor:
-                "#ffffff",
-
-              padding: 14,
-
-              cornerRadius: 14,
-
-              titleFont: {
-                family:
-                  "Geist Mono",
-
-                size: 13,
-
-                weight:
-                  "700",
-              },
-
-              bodyFont: {
-                family:
-                  "Geist Mono",
-
-                size: 12,
-              },
-            },
-          },
-
-          scales: {
-            x: {
-              offset: true,
-
-              grid: {
-                display: false,
-              },
-
-              ticks: {
-                color:
-                  "#475569",
-
-                autoSkip: true,
-
-                autoSkipPadding: 18,
-
-                maxRotation: 0,
-
-                minRotation: 0,
-
-                padding: 12,
-
-                font: {
-                  family:
-                    "Geist Mono",
-
-                  size:
-                    window.innerWidth <
-                    768
-                      ? 10
-                      : 11,
-
-                  weight:
-                    "600",
-                },
-              },
-            },
-
-            y: {
-              min: yAxis.min,
-
-              max: yAxis.max,
-
-              grace: "8%",
-
-              grid: {
-                color:
-                  "rgba(15,23,42,0.05)",
-
-                drawBorder: false,
-              },
-
-              ticks: {
-                color:
-                  "#475569",
-
-                padding: 10,
-
-                precision: 1,
-
-                maxTicksLimit: 6,
-
-                font: {
-                  family:
-                    "Geist Mono",
-
-                  size: 11,
-
-                  weight:
-                    "600",
-                },
-              },
-            },
-          },
-        },
-      });
-    };
-
-    const showError = (
-      message
-    ) => {
-      loading.hidden = true;
-
-      dashboard.hidden = true;
-
-      errorContainer.innerHTML = `
-        <div class="error-box">
-          <span class="material-icons-round">
-            error
-          </span>
-
-          <h2>
-            Failed to Load API
-          </h2>
-
-          <p>
-            ${message}
-          </p>
-        </div>
-      `;
-
-      statusText.textContent =
-        "Connection Failed";
-    };
-
-    const loadDashboard =
-      async () => {
-        try {
-          statusText.textContent =
-            "Fetching Live Data";
-
-          const response =
-            await fetch(
-              API_URL,
-              {
-                headers: {
-                  Accept:
-                    "application/json",
-                },
-
-                cache:
-                  "force-cache",
-              }
-            );
-
-          if (
-            !response.ok
-          ) {
-            throw new Error(
-              `HTTP ${response.status}`
-            );
+          tooltip: {
+            backgroundColor: '#0f172a',
+            titleColor: '#facc15',
+            bodyColor: '#e2e8f0',
+            titleFont: { family: "'Geist Mono', monospace", size: 12, weight: 'bold' },
+            bodyFont: { family: "'Geist Mono', monospace", size: 10 },
+            cornerRadius: 16,
+            padding: 12
           }
-
-          const data =
-            await response.json();
-
-          if (
-            !data ||
-            typeof data !==
-              "object"
-          ) {
-            throw new Error(
-              "Invalid API response"
-            );
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              font: { family: "'Geist Mono', monospace", size: 9, weight: '500' },
+              maxRotation: 35,
+              autoSkip: true,
+              color: '#2c6e9e',
+              padding: 6
+            }
+          },
+          y: {
+            min: yRange.min,
+            max: yRange.max,
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: {
+              font: { family: "'Geist Mono', monospace", size: 10, weight: '500' },
+              color: '#2b6e9e',
+              precision: 1
+            }
           }
-
-          updateText(
-            "totalSteps",
-            data.total_steps
-          );
-
-          updateText(
-            "latestSteps",
-            data.latest_steps
-          );
-
-          updateText(
-            "totalDistance",
-            data.total_distance
-          );
-
-          updateText(
-            "latestDistance",
-            data.latest_distance
-          );
-
-          updateText(
-            "rhr",
-            data.resting_heart_rate
-          );
-
-          updateText(
-            "avgRhr",
-            data.average_rhr
-          );
-
-          updateText(
-            "vo2",
-            data.vo2_max
-          );
-
-          updateText(
-            "avgVo2",
-            data.average_vo2_max
-          );
-
-          document.getElementById(
-            "lastUpdated"
-          ).textContent =
-            `Last Updated: ${
-              data.timestamp
-                ? new Date(
-                    data.timestamp
-                  ).toLocaleString()
-                : "Unknown"
-            }`;
-
-          // Steps Chart
-          const steps =
-            normalizeChartData(
-              safeArray(
-                data.steps_7d
-              ),
-              "date",
-              "steps"
-            );
-
-          createChart({
-            id:
-              "stepsChart",
-
-            labels:
-              steps.labels,
-
-            data:
-              steps.values,
-
-            label:
-              "Steps",
-
-            type: "bar",
-
-            borderColor:
-              "#4f46e5",
-
-            backgroundColor:
-              "rgba(79,70,229,0.22)",
-          });
-
-          // Distance Chart
-          const distance =
-            normalizeChartData(
-              safeArray(
-                data.distance_7d
-              ),
-              "date",
-              "km"
-            );
-
-          createChart({
-            id:
-              "distanceChart",
-
-            labels:
-              distance.labels,
-
-            data:
-              distance.values,
-
-            label:
-              "Distance KM",
-
-            type:
-              "line",
-
-            borderColor:
-              "#06b6d4",
-
-            backgroundColor:
-              "rgba(6,182,212,0.16)",
-          });
-
-          // Heart Rate Chart
-          const rhr =
-            normalizeChartData(
-              safeArray(
-                data.rhr_7d
-              ),
-              "date",
-              "bpm"
-            );
-
-          createChart({
-            id:
-              "rhrChart",
-
-            labels:
-              rhr.labels,
-
-            data:
-              rhr.values,
-
-            label:
-              "Resting BPM",
-
-            type:
-              "line",
-
-            borderColor:
-              "#ef4444",
-
-            backgroundColor:
-              "rgba(239,68,68,0.14)",
-          });
-
-          // VO2 Chart
-          const vo2 =
-            normalizeChartData(
-              safeArray(
-                data.vo2_7d
-              ),
-              "date",
-              "vo2"
-            );
-
-          createChart({
-            id:
-              "vo2Chart",
-
-            labels:
-              vo2.labels,
-
-            data:
-              vo2.values,
-
-            label:
-              "VO₂ Max",
-
-            type:
-              "line",
-
-            borderColor:
-              "#16a34a",
-
-            backgroundColor:
-              "rgba(22,163,74,0.14)",
-          });
-
-          loading.hidden = true;
-
-          dashboard.hidden = false;
-
-          statusText.textContent =
-            "Live Connected";
-        } catch (error) {
-          console.error(
-            error
-          );
-
-          showError(
-            error.message ||
-              "Unable to fetch health data"
-          );
-        }
-      };
-
-    window.addEventListener(
-      "DOMContentLoaded",
-      loadDashboard,
-      {
-        passive: true,
-        once: true,
+        },
+        interaction: { mode: 'index', intersect: false }
       }
-    );
-  </script>
+    });
+    activeCharts[id] = chart;
+  };
+
+  const showErrorMsg = (message) => {
+    loadingDiv.hidden = true;
+    dashboard.hidden = true;
+    errorContainer.innerHTML = `
+      <div class="error-box">
+        <span class="material-icons-round">sentiment_dissatisfied</span>
+        <h3>Unable to load health data</h3>
+        <p>${message}</p>
+        <button onclick="location.reload()">⟳ Retry</button>
+      </div>
+    `;
+    statusSpan.textContent = "Offline mode";
+  };
+
+  const fetchHealthData = async () => {
+    try {
+      statusSpan.textContent = "Fetching metrics";
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 7000);
+      const res = await fetch(API_URL, {
+        headers: { Accept: "application/json" },
+        cache: "force-cache",
+        signal: controller.signal
+      });
+      clearTimeout(timeout);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data || typeof data !== "object") throw new Error("Invalid data");
+
+      updateElement("totalSteps", data.total_steps);
+      updateElement("latestSteps", data.latest_steps);
+      updateElement("totalDistance", data.total_distance);
+      updateElement("latestDistance", data.latest_distance);
+      updateElement("rhr", data.resting_heart_rate);
+      updateElement("avgRhr", data.average_rhr);
+      updateElement("vo2", data.vo2_max);
+      updateElement("avgVo2", data.average_vo2_max);
+      
+      const updatedSpan = document.getElementById("lastUpdated");
+      if (updatedSpan && data.timestamp) {
+        updatedSpan.textContent = `⟳ last sync: ${new Date(data.timestamp).toLocaleString()}`;
+      } else if (updatedSpan) {
+        updatedSpan.textContent = "⟳ last sync: just now";
+      }
+
+      const stepsRaw = data.steps_7d || [];
+      const distanceRaw = data.distance_7d || [];
+      const rhrRaw = data.rhr_7d || [];
+      const vo2Raw = data.vo2_7d || [];
+
+      let stepsNorm = normalizeChartData(stepsRaw, "date", "steps");
+      let distNorm = normalizeChartData(distanceRaw, "date", "km");
+      let rhrNorm = normalizeChartData(rhrRaw, "date", "bpm");
+      let vo2Norm = normalizeChartData(vo2Raw, "date", "vo2");
+
+      if (stepsNorm.labels.length === 0) stepsNorm = { labels: ["No data"], values: [0] };
+      if (distNorm.labels.length === 0) distNorm = { labels: ["No data"], values: [0] };
+      if (rhrNorm.labels.length === 0) rhrNorm = { labels: ["No data"], values: [0] };
+      if (vo2Norm.labels.length === 0) vo2Norm = { labels: ["No data"], values: [0] };
+
+      renderChart({ id: "stepsChart", labels: stepsNorm.labels, data: stepsNorm.values, label: "Steps", type: "bar", borderColor: "#f97316" });
+      renderChart({ id: "distanceChart", labels: distNorm.labels, data: distNorm.values, label: "Kilometers", type: "line", borderColor: "#0d9488" });
+      renderChart({ id: "rhrChart", labels: rhrNorm.labels, data: rhrNorm.values, label: "Resting BPM", type: "line", borderColor: "#db2777" });
+      renderChart({ id: "vo2Chart", labels: vo2Norm.labels, data: vo2Norm.values, label: "VO₂ Max", type: "line", borderColor: "#7c3aed" });
+
+      loadingDiv.hidden = true;
+      dashboard.hidden = false;
+      statusSpan.innerHTML = `<span class="status-dot"></span> Live data • active`;
+      statusSpan.style.background = "#dcfce7";
+    } catch (err) {
+      console.warn(err);
+      if (err.name === "AbortError") showErrorMsg("Request timeout. Check your connection.");
+      else showErrorMsg(err.message || "Could not fetch health analytics.");
+    }
+  };
+
+  window.addEventListener("DOMContentLoaded", fetchHealthData);
+})();
+</script>
+
 </body>
 </html>
