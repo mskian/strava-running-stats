@@ -1,18 +1,46 @@
 {
-  "timestamp": "2026-06-18T12:01:56.408954Z",
-  "total_steps": "6.9K",
-  "total_distance": "5.1 km",
+  "timestamp": "2026-06-18T12:06:26.562163Z",
+  "total_steps": "28.8K",
+  "total_distance": "127.88 km",
   "latest_steps": "6.9K",
   "latest_distance": "5.1 km",
   "latest_start": "2026-06-17T18:30:00Z",
-  "latest_end": "2026-06-18T12:01:55.844247Z",
+  "latest_end": "2026-06-18T12:06:26.269175Z",
   "resting_heart_rate": "54 bpm",
   "vo2_max": "43.9 ml/kg/min",
-  "average_rhr": "54 bpm",
-  "average_vo2_max": "43.9 ml/kg/min",
-  "rhr_days": 1,
-  "vo2_days": 1,
+  "average_rhr": "52 bpm",
+  "average_vo2_max": "43.8 ml/kg/min",
+  "rhr_days": 7,
+  "vo2_days": 2,
   "steps_7d": [
+    {
+      "date": "11 Jun",
+      "steps": 1145
+    },
+    {
+      "date": "12 Jun",
+      "steps": 4011
+    },
+    {
+      "date": "13 Jun",
+      "steps": 2527
+    },
+    {
+      "date": "14 Jun",
+      "steps": 864
+    },
+    {
+      "date": "15 Jun",
+      "steps": 1420
+    },
+    {
+      "date": "16 Jun",
+      "steps": 2942
+    },
+    {
+      "date": "17 Jun",
+      "steps": 8965
+    },
     {
       "date": "18 Jun",
       "steps": 6937
@@ -20,17 +48,69 @@
   ],
   "distance_7d": [
     {
+      "date": "12 Jun",
+      "km": 1.48
+    },
+    {
+      "date": "13 Jun",
+      "km": 44.23
+    },
+    {
+      "date": "14 Jun",
+      "km": 15.38
+    },
+    {
+      "date": "15 Jun",
+      "km": 0.65
+    },
+    {
+      "date": "16 Jun",
+      "km": 54.33
+    },
+    {
+      "date": "17 Jun",
+      "km": 6.71
+    },
+    {
       "date": "18 Jun",
       "km": 5.1
     }
   ],
   "rhr_7d": [
     {
+      "date": "11 Jun",
+      "bpm": 51
+    },
+    {
+      "date": "12 Jun",
+      "bpm": 51
+    },
+    {
+      "date": "13 Jun",
+      "bpm": 51
+    },
+    {
+      "date": "14 Jun",
+      "bpm": 53
+    },
+    {
+      "date": "15 Jun",
+      "bpm": 51
+    },
+    {
+      "date": "16 Jun",
+      "bpm": 51
+    },
+    {
       "date": "17 Jun",
       "bpm": 54
     }
   ],
   "vo2_7d": [
+    {
+      "date": "16 Jun",
+      "vo2": 43.7
+    },
     {
       "date": "18 Jun",
       "vo2": 43.9
