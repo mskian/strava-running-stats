@@ -1,15 +1,15 @@
 {
   "metrics": {
-    "fitness_ctl": 43,
-    "fatigue_atl": 53,
-    "form_tsb": -10
+    "fitness_ctl": 42,
+    "fatigue_atl": 47,
+    "form_tsb": -5
   },
   "training_status": {
     "color": "green",
     "label": "Optimal"
   },
-  "body_status": "Building Fitness",
-  "recommendation": "Perfect training load. Fitness is improving.",
+  "body_status": "Training Well",
+  "recommendation": "Good balance. Maintain current training.",
   "source": "intervals.icu",
-  "updated_at": "2026-06-25T04:21:54.481Z"
+  "updated_at": "2026-06-26T16:37:06.890Z"
 }
