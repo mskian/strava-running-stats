@@ -1,29 +1,21 @@
 {
-  "timestamp": "2026-06-29T16:12:36.330442Z",
-  "total_steps": "36.9K",
-  "total_distance": "187.83 km",
-  "latest_steps": "4.2K",
-  "latest_distance": "438 m",
-  "latest_start": "2026-06-28T18:30:00Z",
-  "latest_end": "2026-06-29T16:12:36.027028Z",
-  "resting_heart_rate": "55 bpm",
-  "vo2_max": "43.2 ml/kg/min",
-  "average_rhr": "54 bpm",
-  "average_vo2_max": "43.3 ml/kg/min",
+  "timestamp": "2026-07-01T04:09:07.483512Z",
+  "total_steps": "21.2K",
+  "total_distance": "237.48 km",
+  "latest_steps": "855",
+  "latest_distance": "63.24 km",
+  "latest_start": "2026-06-30T18:30:00Z",
+  "latest_end": "2026-07-01T04:09:06.628478Z",
+  "resting_heart_rate": "48 bpm",
+  "vo2_max": null,
+  "average_rhr": "53 bpm",
+  "average_vo2_max": null,
   "rhr_days": 5,
-  "vo2_days": 2,
+  "vo2_days": 0,
   "steps_7d": [
     {
-      "date": "22 Jun",
-      "steps": 90
-    },
-    {
-      "date": "23 Jun",
-      "steps": 9024
-    },
-    {
       "date": "24 Jun",
-      "steps": 9581
+      "steps": 754
     },
     {
       "date": "25 Jun",
@@ -43,17 +35,21 @@
     },
     {
       "date": "29 Jun",
-      "steps": 4183
+      "steps": 4191
+    },
+    {
+      "date": "30 Jun",
+      "steps": 1378
+    },
+    {
+      "date": "01 Jul",
+      "steps": 855
     }
   ],
   "distance_7d": [
     {
-      "date": "23 Jun",
-      "km": 6.76
-    },
-    {
       "date": "24 Jun",
-      "km": 7.34
+      "km": 0.17
     },
     {
       "date": "25 Jun",
@@ -74,13 +70,17 @@
     {
       "date": "29 Jun",
       "km": 0.44
+    },
+    {
+      "date": "30 Jun",
+      "km": 0.34
+    },
+    {
+      "date": "01 Jul",
+      "km": 63.24
     }
   ],
   "rhr_7d": [
-    {
-      "date": "23 Jun",
-      "bpm": 52
-    },
     {
       "date": "24 Jun",
       "bpm": 59
@@ -96,16 +96,11 @@
     {
       "date": "29 Jun",
       "bpm": 55
-    }
-  ],
-  "vo2_7d": [
-    {
-      "date": "22 Jun",
-      "vo2": 43.4
     },
     {
-      "date": "23 Jun",
-      "vo2": 43.2
+      "date": "30 Jun",
+      "bpm": 48
     }
-  ]
+  ],
+  "vo2_7d": []
 }
