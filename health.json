@@ -1,25 +1,21 @@
 {
-  "timestamp": "2026-07-15T02:51:30.724708Z",
-  "total_steps": "35.4K",
-  "total_distance": "213.65 km",
-  "latest_steps": "429",
-  "latest_distance": "51.37 km",
-  "latest_start": "2026-07-14T18:30:00Z",
-  "latest_end": "2026-07-15T02:51:30.486996Z",
-  "resting_heart_rate": "53 bpm",
-  "vo2_max": "43.3 ml/kg/min",
+  "timestamp": "2026-07-16T03:33:33.558114Z",
+  "total_steps": "36.2K",
+  "total_distance": "213.88 km",
+  "latest_steps": "7.8K",
+  "latest_distance": "6.73 km",
+  "latest_start": "2026-07-15T18:30:00Z",
+  "latest_end": "2026-07-16T03:33:33.373321Z",
+  "resting_heart_rate": "52 bpm",
+  "vo2_max": "43.2 ml/kg/min",
   "average_rhr": "52 bpm",
-  "average_vo2_max": "43.4 ml/kg/min",
-  "rhr_days": 7,
+  "average_vo2_max": "43.2 ml/kg/min",
+  "rhr_days": 8,
   "vo2_days": 2,
   "steps_7d": [
     {
-      "date": "08 Jul",
-      "steps": 627
-    },
-    {
       "date": "09 Jul",
-      "steps": 9015
+      "steps": 922
     },
     {
       "date": "10 Jul",
@@ -43,17 +39,17 @@
     },
     {
       "date": "15 Jul",
-      "steps": 429
+      "steps": 2156
+    },
+    {
+      "date": "16 Jul",
+      "steps": 7814
     }
   ],
   "distance_7d": [
     {
-      "date": "08 Jul",
-      "km": 0.18
-    },
-    {
       "date": "09 Jul",
-      "km": 7.2
+      "km": 0.24
     },
     {
       "date": "10 Jul",
@@ -77,14 +73,14 @@
     },
     {
       "date": "15 Jul",
-      "km": 51.37
+      "km": 52.02
+    },
+    {
+      "date": "16 Jul",
+      "km": 6.73
     }
   ],
   "rhr_7d": [
-    {
-      "date": "08 Jul",
-      "bpm": 54
-    },
     {
       "date": "09 Jul",
       "bpm": 51
@@ -108,16 +104,24 @@
     {
       "date": "14 Jul",
       "bpm": 53
+    },
+    {
+      "date": "15 Jul",
+      "bpm": 53
+    },
+    {
+      "date": "16 Jul",
+      "bpm": 52
     }
   ],
   "vo2_7d": [
     {
-      "date": "08 Jul",
-      "vo2": 43.5
-    },
-    {
       "date": "13 Jul",
       "vo2": 43.3
+    },
+    {
+      "date": "15 Jul",
+      "vo2": 43.2
     }
   ]
 }
