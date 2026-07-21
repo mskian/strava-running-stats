@@ -1,29 +1,21 @@
 {
-  "timestamp": "2026-07-19T05:48:54.199725Z",
-  "total_steps": "49K",
-  "total_distance": "91.11 km",
-  "latest_steps": "7.4K",
-  "latest_distance": "6.64 km",
-  "latest_start": "2026-07-18T18:30:00Z",
-  "latest_end": "2026-07-19T05:48:54.017888Z",
-  "resting_heart_rate": "55 bpm",
+  "timestamp": "2026-07-21T01:41:32.695734Z",
+  "total_steps": "37.6K",
+  "total_distance": "81.37 km",
+  "latest_steps": "947",
+  "latest_distance": "503 m",
+  "latest_start": "2026-07-20T18:30:00Z",
+  "latest_end": "2026-07-21T01:41:32.460747Z",
+  "resting_heart_rate": "53 bpm",
   "vo2_max": "44.7 ml/kg/min",
-  "average_rhr": "52 bpm",
-  "average_vo2_max": "43.9 ml/kg/min",
-  "rhr_days": 7,
-  "vo2_days": 5,
+  "average_rhr": "53 bpm",
+  "average_vo2_max": "44.1 ml/kg/min",
+  "rhr_days": 8,
+  "vo2_days": 4,
   "steps_7d": [
     {
-      "date": "12 Jul",
-      "steps": 32
-    },
-    {
-      "date": "13 Jul",
-      "steps": 7691
-    },
-    {
       "date": "14 Jul",
-      "steps": 8046
+      "steps": 1862
     },
     {
       "date": "15 Jul",
@@ -43,17 +35,21 @@
     },
     {
       "date": "19 Jul",
-      "steps": 7402
+      "steps": 8541
+    },
+    {
+      "date": "20 Jul",
+      "steps": 393
+    },
+    {
+      "date": "21 Jul",
+      "steps": 947
     }
   ],
   "distance_7d": [
     {
-      "date": "13 Jul",
-      "km": 5.42
-    },
-    {
       "date": "14 Jul",
-      "km": 6.66
+      "km": 1.29
     },
     {
       "date": "15 Jul",
@@ -73,18 +69,18 @@
     },
     {
       "date": "19 Jul",
-      "km": 6.64
+      "km": 6.99
+    },
+    {
+      "date": "20 Jul",
+      "km": 0.19
+    },
+    {
+      "date": "21 Jul",
+      "km": 0.5
     }
   ],
   "rhr_7d": [
-    {
-      "date": "12 Jul",
-      "bpm": 51
-    },
-    {
-      "date": "13 Jul",
-      "bpm": 50
-    },
     {
       "date": "14 Jul",
       "bpm": 53
@@ -104,13 +100,21 @@
     {
       "date": "18 Jul",
       "bpm": 55
+    },
+    {
+      "date": "19 Jul",
+      "bpm": 55
+    },
+    {
+      "date": "20 Jul",
+      "bpm": 53
+    },
+    {
+      "date": "21 Jul",
+      "bpm": 53
     }
   ],
   "vo2_7d": [
-    {
-      "date": "13 Jul",
-      "vo2": 43.3
-    },
     {
       "date": "15 Jul",
       "vo2": 43.2
