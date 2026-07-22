@@ -1,20 +1,20 @@
 {
   "year": {
-    "totalDistanceKm": "426.29",
-    "totalActivities": 81,
-    "totalTime": "43h 36m",
-    "totalDays": 79
+    "totalDistanceKm": "431.37",
+    "totalActivities": 82,
+    "totalTime": "44h 8m",
+    "totalDays": 80
   },
   "month": {
-    "totalDistanceKm": "45.73",
-    "totalActivities": 9,
-    "totalTime": "4h 27m",
-    "totalDays": 9
+    "totalDistanceKm": "50.81",
+    "totalActivities": 10,
+    "totalTime": "4h 59m",
+    "totalDays": 10
   },
   "week": {
-    "totalDistanceKm": "5.05",
-    "totalActivities": 1,
-    "totalTime": "0h 27m",
-    "totalDays": 1
+    "totalDistanceKm": "10.13",
+    "totalActivities": 2,
+    "totalTime": "0h 59m",
+    "totalDays": 2
   }
 }
