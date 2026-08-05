@@ -1,25 +1,21 @@
 {
-  "timestamp": "2026-08-04T04:01:15.703266Z",
-  "total_steps": "53.9K",
-  "total_distance": "103.7 km",
-  "latest_steps": "10.2K",
-  "latest_distance": "7.15 km",
-  "latest_start": "2026-08-03T18:30:00Z",
-  "latest_end": "2026-08-04T04:01:15.468514Z",
-  "resting_heart_rate": "54 bpm",
-  "vo2_max": "43.7 ml/kg/min",
-  "average_rhr": "53 bpm",
-  "average_vo2_max": "43.9 ml/kg/min",
+  "timestamp": "2026-08-05T02:45:32.179703Z",
+  "total_steps": "54.4K",
+  "total_distance": "104.06 km",
+  "latest_steps": "8.3K",
+  "latest_distance": "6.9 km",
+  "latest_start": "2026-08-04T18:30:00Z",
+  "latest_end": "2026-08-05T02:45:31.988193Z",
+  "resting_heart_rate": "51 bpm",
+  "vo2_max": "43.6 ml/kg/min",
+  "average_rhr": "52 bpm",
+  "average_vo2_max": "43.8 ml/kg/min",
   "rhr_days": 7,
   "vo2_days": 5,
   "steps_7d": [
     {
-      "date": "28 Jul",
-      "steps": 355
-    },
-    {
       "date": "29 Jul",
-      "steps": 8012
+      "steps": 306
     },
     {
       "date": "30 Jul",
@@ -43,17 +39,17 @@
     },
     {
       "date": "04 Aug",
-      "steps": 10200
+      "steps": 10423
+    },
+    {
+      "date": "05 Aug",
+      "steps": 8300
     }
   ],
   "distance_7d": [
     {
-      "date": "28 Jul",
-      "km": 0.1
-    },
-    {
       "date": "29 Jul",
-      "km": 6.5
+      "km": 0.07
     },
     {
       "date": "30 Jul",
@@ -78,13 +74,13 @@
     {
       "date": "04 Aug",
       "km": 7.15
+    },
+    {
+      "date": "05 Aug",
+      "km": 6.9
     }
   ],
   "rhr_7d": [
-    {
-      "date": "28 Jul",
-      "bpm": 52
-    },
     {
       "date": "29 Jul",
       "bpm": 50
@@ -108,13 +104,13 @@
     {
       "date": "03 Aug",
       "bpm": 54
+    },
+    {
+      "date": "04 Aug",
+      "bpm": 51
     }
   ],
   "vo2_7d": [
-    {
-      "date": "28 Jul",
-      "vo2": 44.3
-    },
     {
       "date": "29 Jul",
       "vo2": 44
@@ -130,6 +126,10 @@
     {
       "date": "03 Aug",
       "vo2": 43.7
+    },
+    {
+      "date": "04 Aug",
+      "vo2": 43.6
     }
   ]
 }
