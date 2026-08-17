@@ -1,8 +1,8 @@
 {
   "metrics": {
-    "fitness_ctl": 52,
-    "fatigue_atl": 62,
-    "form_tsb": -10
+    "fitness_ctl": 53,
+    "fatigue_atl": 66,
+    "form_tsb": -13
   },
   "training_status": {
     "color": "green",
@@ -11,5 +11,5 @@
   "body_status": "Building Fitness",
   "recommendation": "Perfect training load. Fitness is improving.",
   "source": "intervals.icu",
-  "updated_at": "2026-08-16T04:17:26.625Z"
+  "updated_at": "2026-08-17T03:35:47.276Z"
 }
