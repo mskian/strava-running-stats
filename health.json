@@ -1,25 +1,21 @@
 {
-  "timestamp": "2026-08-20T03:10:53.762527Z",
-  "total_steps": "37K",
-  "total_distance": "125.01 km",
-  "latest_steps": "8.7K",
-  "latest_distance": "7.25 km",
-  "latest_start": "2026-08-19T18:30:00Z",
-  "latest_end": "2026-08-20T03:10:53.227621Z",
-  "resting_heart_rate": "49 bpm",
-  "vo2_max": "44.3 ml/kg/min",
-  "average_rhr": "50 bpm",
-  "average_vo2_max": "44.3 ml/kg/min",
+  "timestamp": "2026-08-21T03:01:51.751899Z",
+  "total_steps": "37.1K",
+  "total_distance": "124.26 km",
+  "latest_steps": "8K",
+  "latest_distance": "6.67 km",
+  "latest_start": "2026-08-20T18:30:00Z",
+  "latest_end": "2026-08-21T03:01:51.377983Z",
+  "resting_heart_rate": "50 bpm",
+  "vo2_max": "44.4 ml/kg/min",
+  "average_rhr": "49 bpm",
+  "average_vo2_max": "44.4 ml/kg/min",
   "rhr_days": 5,
   "vo2_days": 3,
   "steps_7d": [
     {
-      "date": "13 Aug",
-      "steps": 268
-    },
-    {
       "date": "14 Aug",
-      "steps": 7974
+      "steps": 169
     },
     {
       "date": "15 Aug",
@@ -43,18 +39,14 @@
     },
     {
       "date": "20 Aug",
-      "steps": 8681
+      "steps": 8824
+    },
+    {
+      "date": "21 Aug",
+      "steps": 8000
     }
   ],
   "distance_7d": [
-    {
-      "date": "13 Aug",
-      "km": 0.11
-    },
-    {
-      "date": "14 Aug",
-      "km": 7.4
-    },
     {
       "date": "15 Aug",
       "km": 0.69
@@ -77,14 +69,14 @@
     },
     {
       "date": "20 Aug",
-      "km": 7.25
+      "km": 7.33
+    },
+    {
+      "date": "21 Aug",
+      "km": 6.67
     }
   ],
   "rhr_7d": [
-    {
-      "date": "13 Aug",
-      "bpm": 52
-    },
     {
       "date": "14 Aug",
       "bpm": 50
@@ -100,13 +92,13 @@
     {
       "date": "19 Aug",
       "bpm": 49
+    },
+    {
+      "date": "20 Aug",
+      "bpm": 50
     }
   ],
   "vo2_7d": [
-    {
-      "date": "13 Aug",
-      "vo2": 44.2
-    },
     {
       "date": "18 Aug",
       "vo2": 44.4
@@ -114,6 +106,10 @@
     {
       "date": "19 Aug",
       "vo2": 44.3
+    },
+    {
+      "date": "20 Aug",
+      "vo2": 44.4
     }
   ]
 }
