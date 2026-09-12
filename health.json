@@ -1,25 +1,21 @@
 {
-  "timestamp": "2026-09-11T02:39:53.834150Z",
-  "total_steps": "44K",
-  "total_distance": "102.28 km",
-  "latest_steps": "6K",
-  "latest_distance": "5.48 km",
-  "latest_start": "2026-09-10T18:30:00Z",
-  "latest_end": "2026-09-11T02:39:53.549098Z",
-  "resting_heart_rate": "51 bpm",
+  "timestamp": "2026-09-12T05:29:38.387824Z",
+  "total_steps": "37.6K",
+  "total_distance": "157.03 km",
+  "latest_steps": "1.4K",
+  "latest_distance": "61.62 km",
+  "latest_start": "2026-09-11T18:30:00Z",
+  "latest_end": "2026-09-12T05:29:37.719373Z",
+  "resting_heart_rate": "53 bpm",
   "vo2_max": "44.5 ml/kg/min",
   "average_rhr": "51 bpm",
   "average_vo2_max": "44.4 ml/kg/min",
-  "rhr_days": 6,
-  "vo2_days": 4,
+  "rhr_days": 5,
+  "vo2_days": 3,
   "steps_7d": [
     {
-      "date": "04 Sept",
-      "steps": 203
-    },
-    {
       "date": "05 Sept",
-      "steps": 8096
+      "steps": 147
     },
     {
       "date": "06 Sept",
@@ -43,13 +39,17 @@
     },
     {
       "date": "11 Sept",
-      "steps": 6001
+      "steps": 6361
+    },
+    {
+      "date": "12 Sept",
+      "steps": 1437
     }
   ],
   "distance_7d": [
     {
       "date": "05 Sept",
-      "km": 7.13
+      "km": 0.07
     },
     {
       "date": "06 Sept",
@@ -73,14 +73,14 @@
     },
     {
       "date": "11 Sept",
-      "km": 5.48
+      "km": 5.66
+    },
+    {
+      "date": "12 Sept",
+      "km": 61.62
     }
   ],
   "rhr_7d": [
-    {
-      "date": "04 Sept",
-      "bpm": 52
-    },
     {
       "date": "06 Sept",
       "bpm": 49
@@ -99,14 +99,10 @@
     },
     {
       "date": "11 Sept",
-      "bpm": 51
+      "bpm": 53
     }
   ],
   "vo2_7d": [
-    {
-      "date": "04 Sept",
-      "vo2": 44.4
-    },
     {
       "date": "06 Sept",
       "vo2": 44.4
