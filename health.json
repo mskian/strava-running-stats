@@ -1,33 +1,21 @@
 {
-  "timestamp": "2026-09-19T03:18:00.669489Z",
-  "total_steps": "30.9K",
-  "total_distance": "146.01 km",
-  "latest_steps": "570",
-  "latest_distance": "70.25 km",
-  "latest_start": "2026-09-18T18:30:00Z",
-  "latest_end": "2026-09-19T03:18:00.293131Z",
-  "resting_heart_rate": "52 bpm",
-  "vo2_max": "45.4 ml/kg/min",
-  "average_rhr": "50 bpm",
-  "average_vo2_max": "45.2 ml/kg/min",
-  "rhr_days": 7,
-  "vo2_days": 3,
+  "timestamp": "2026-09-22T02:52:28.985140Z",
+  "total_steps": "24.9K",
+  "total_distance": "127.08 km",
+  "latest_steps": "8.4K",
+  "latest_distance": "6.95 km",
+  "latest_start": "2026-09-21T18:30:00Z",
+  "latest_end": "2026-09-22T02:52:28.240721Z",
+  "resting_heart_rate": "53 bpm",
+  "vo2_max": "45.3 ml/kg/min",
+  "average_rhr": "51 bpm",
+  "average_vo2_max": "45.3 ml/kg/min",
+  "rhr_days": 6,
+  "vo2_days": 4,
   "steps_7d": [
     {
-      "date": "12 Sept",
-      "steps": 104
-    },
-    {
-      "date": "13 Sept",
-      "steps": 7146
-    },
-    {
-      "date": "14 Sept",
-      "steps": 74
-    },
-    {
       "date": "15 Sept",
-      "steps": 7823
+      "steps": 57
     },
     {
       "date": "16 Sept",
@@ -44,21 +32,21 @@
     {
       "date": "19 Sept",
       "steps": 570
+    },
+    {
+      "date": "20 Sept",
+      "steps": 322
+    },
+    {
+      "date": "21 Sept",
+      "steps": 416
+    },
+    {
+      "date": "22 Sept",
+      "steps": 8360
     }
   ],
   "distance_7d": [
-    {
-      "date": "13 Sept",
-      "km": 19.68
-    },
-    {
-      "date": "14 Sept",
-      "km": 0.05
-    },
-    {
-      "date": "15 Sept",
-      "km": 6.61
-    },
     {
       "date": "16 Sept",
       "km": 36.2
@@ -74,21 +62,21 @@
     {
       "date": "19 Sept",
       "km": 70.25
+    },
+    {
+      "date": "20 Sept",
+      "km": 0.2
+    },
+    {
+      "date": "21 Sept",
+      "km": 0.26
+    },
+    {
+      "date": "22 Sept",
+      "km": 6.95
     }
   ],
   "rhr_7d": [
-    {
-      "date": "12 Sept",
-      "bpm": 52
-    },
-    {
-      "date": "13 Sept",
-      "bpm": 50
-    },
-    {
-      "date": "14 Sept",
-      "bpm": 48
-    },
     {
       "date": "15 Sept",
       "bpm": 50
@@ -104,13 +92,17 @@
     {
       "date": "18 Sept",
       "bpm": 52
+    },
+    {
+      "date": "20 Sept",
+      "bpm": 50
+    },
+    {
+      "date": "21 Sept",
+      "bpm": 53
     }
   ],
   "vo2_7d": [
-    {
-      "date": "14 Sept",
-      "vo2": 45.2
-    },
     {
       "date": "16 Sept",
       "vo2": 45
@@ -118,6 +110,14 @@
     {
       "date": "17 Sept",
       "vo2": 45.4
+    },
+    {
+      "date": "18 Sept",
+      "vo2": 45.4
+    },
+    {
+      "date": "22 Sept",
+      "vo2": 45.3
     }
   ]
 }
