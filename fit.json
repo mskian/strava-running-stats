@@ -1,8 +1,8 @@
 {
   "metrics": {
     "fitness_ctl": 53,
-    "fatigue_atl": 47,
-    "form_tsb": 6
+    "fatigue_atl": 48,
+    "form_tsb": 5
   },
   "training_status": {
     "color": "blue",
@@ -11,5 +11,5 @@
   "body_status": "Freshening",
   "recommendation": "Good phase for sharpening or preparing for events.",
   "source": "intervals.icu",
-  "updated_at": "2026-09-22T04:30:03.864Z"
+  "updated_at": "2026-09-23T03:23:44.632Z"
 }
