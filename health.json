@@ -1,21 +1,29 @@
 {
-  "timestamp": "2026-11-19T23:08:41.687934+05:30",
-  "total_steps": "15.2K",
-  "total_distance": "11.12 km",
-  "latest_steps": "7K",
-  "latest_distance": "5.11 km",
-  "latest_start": "2026-11-19T00:00:00+05:30",
-  "latest_end": "2026-11-19T23:08:41.516685+05:30",
-  "resting_heart_rate": "64 bpm",
-  "vo2_max": null,
+  "timestamp": "2026-11-22T10:36:21.388764+05:30",
+  "total_steps": "53.5K",
+  "total_distance": "39.51 km",
+  "latest_steps": "8.3K",
+  "latest_distance": "6.74 km",
+  "latest_start": "2026-11-22T00:00:00+05:30",
+  "latest_end": "2026-11-22T10:36:21.123049+05:30",
+  "resting_heart_rate": "66 bpm",
+  "vo2_max": "44.1 ml/kg/min",
   "average_rhr": "65 bpm",
-  "average_vo2_max": null,
-  "rhr_days": 2,
-  "vo2_days": 0,
+  "average_vo2_max": "44.1 ml/kg/min",
+  "rhr_days": 7,
+  "vo2_days": 1,
   "steps_7d": [
     {
+      "date": "15 Nov",
+      "steps": 5353
+    },
+    {
+      "date": "16 Nov",
+      "steps": 6572
+    },
+    {
       "date": "17 Nov",
-      "steps": 10
+      "steps": 5113
     },
     {
       "date": "18 Nov",
@@ -23,13 +31,33 @@
     },
     {
       "date": "19 Nov",
-      "steps": 7005
+      "steps": 7537
+    },
+    {
+      "date": "20 Nov",
+      "steps": 5990
+    },
+    {
+      "date": "21 Nov",
+      "steps": 6355
+    },
+    {
+      "date": "22 Nov",
+      "steps": 8345
     }
   ],
   "distance_7d": [
     {
+      "date": "15 Nov",
+      "km": 3.89
+    },
+    {
+      "date": "16 Nov",
+      "km": 4.77
+    },
+    {
       "date": "17 Nov",
-      "km": 0.01
+      "km": 3.7
     },
     {
       "date": "18 Nov",
@@ -37,10 +65,30 @@
     },
     {
       "date": "19 Nov",
-      "km": 5.11
+      "km": 5.33
+    },
+    {
+      "date": "20 Nov",
+      "km": 4.41
+    },
+    {
+      "date": "21 Nov",
+      "km": 4.67
+    },
+    {
+      "date": "22 Nov",
+      "km": 6.74
     }
   ],
   "rhr_7d": [
+    {
+      "date": "16 Nov",
+      "bpm": 65
+    },
+    {
+      "date": "17 Nov",
+      "bpm": 64
+    },
     {
       "date": "18 Nov",
       "bpm": 65
@@ -48,7 +96,24 @@
     {
       "date": "19 Nov",
       "bpm": 64
+    },
+    {
+      "date": "20 Nov",
+      "bpm": 67
+    },
+    {
+      "date": "21 Nov",
+      "bpm": 67
+    },
+    {
+      "date": "22 Nov",
+      "bpm": 66
     }
   ],
-  "vo2_7d": []
+  "vo2_7d": [
+    {
+      "date": "22 Nov",
+      "vo2": 44.1
+    }
+  ]
 }
